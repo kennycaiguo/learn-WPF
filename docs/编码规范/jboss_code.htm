@@ -1,0 +1,299 @@
+<html>
+<head>
+<title>Huihoo.org - JBoss编码规范</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+<!--开始头部-->                   
+<table border="0" width="100%" cellspacing="0">
+<tr>
+<td align="left" valign="top">
+<a href="../index.html"><img src="../huihoo.org.jpg" alt="Huihoo.org - Open Enterprise Foundation" align="left" border="0"/></a>
+</tr>
+</table> 
+<!--结束头部-->                   
+
+<!--开始中部-->
+<table width="100%" border="0" cellspacing="0" cellpadding="3" align="center">
+<tr width='100%'>
+<td width='1%'></td>
+<!--开始正文-->   
+<td width='98%'>
+<hr width='98%' noshade="noshade" size="1"> 
+<br>
+<center><h4>CODE STYLE GUIDE</h4></center>
+<br>
+(来源：http://www.jboss.com)
+<br><br>
+<!-- PAGE CONTENT --><!-- ==================================================================== -->
+            <P>This guide is here to make the JBoss code more readable. Because 
+            of the <EM>age</EM> of JBoss there will be always some code around 
+            which does not follow this guide, but over time this will become 
+            less and less. <BR clear=all><!-- ==================================================================== -->
+            <H2>Layout</H2>
+            <P>
+            <DL>
+              <DT><B>Identation</B> 
+              <DD>3 Spaces (no Tabs because they look ugly in "dump" editors 
+              like HTML pages (online CVS)). 
+              <DT><B>Comments</B> 
+              <DD>Line up comments on the left hand side (also Javadocs). 
+              <DT><B>Grouping</B> 
+              <DD>Group members, methods etc. according to the templates and use 
+              the template's comments to separate them. </DD></DL>
+            <H2>General Code</H2>
+            <P>The first part of a JBoss class should contain the Copyright 
+            comment: <PRE class=code>/*
+ * JBoss, the OpenSource J2EE webOS
+ *
+ * Distributable under LGPL license.
+ * See terms of license at gnu.org.
+ */
+   </PRE>
+            <P>Next part is the package definition. Please use <B>NO 
+            ABBREVIATIONS</B> and follow the Java guidelines. 
+            <P>Now add the external classes import statement. Please use always 
+            fully qualified imports (no *) because then everyone knows which 
+            class comes from which package. When you have a conflict then import 
+            none or the best one and fully qualify the other class(es) when you 
+            use them (example: <TT>java.util.Date</TT> and 
+            <TT>java.sql.Date</TT>). 
+            <P>Add the JavaDoc documentation for the main class which looks like 
+            this: <PRE class=code>/**
+ * &lt;description&gt; 
+ *
+ * @see &lt;related&gt;
+ *
+ * @author  &lt;a href="mailto:{email}"&gt;{full name}&lt;/a&gt;.
+ * @version $Revision: 1.2 $
+ *   
+ * &lt;p&gt;&lt;b&gt;Revisions:&lt;/b&gt;
+ *
+ * &lt;p&gt;&lt;b&gt;yyyymmdd author:&lt;/b&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt; explicit fix description (no line numbers but methods) 
+ *            go beyond the cvs commit message
+ * &lt;/ul&gt;
+ *    eg: 
+ * &lt;p&gt;&lt;b&gt;20010516 marc fleury:&lt;/b&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt; Ask all developers to clearly document the Revision, 
+ *            changed the header.  
+ * &lt;/ul&gt;
+ */
+      </PRE>
+            <P><B>NOTE:</B> The above is a guide for creating class javadocs. 
+            There are certain sections (<TT>&lt;description&gt;</TT>, 
+            <TT>&lt;related&gt;</TT>, ...) which are meant to be replaced by the 
+            individual developer as it applies to the class at hand. Please 
+            <B>DO NOT</B> cut and pase this example with out replacing these 
+            tokens. 
+            <P>Instead of <TT>@see</TT> you can also use <TT>{@link ...}</TT> 
+            inside the comments (inline reference). <B>ALWAYS</B> add these 
+            comments, the developer after you will love it and hopefully do 
+            his/her part as well. 
+            <P>Document all public (and mostly protected) members and methods in 
+            the class with JavaDoc except you did not add new functionality 
+            during overwriting a method (comming from an Interface or a base 
+            class). Especially note the following: 
+            <UL>
+              <LI>When Parameter can or cannot be null and also what it means 
+              when null is allowed. 
+              <LI>When Return values can be or are never null. 
+              <LI>Document side effects. 
+              <LI>Usefull is also when you mention if and where another method 
+              or the overwritten method is called. Because this is open-source 
+              it is not that important but when you only rely on the 
+              documentation it can avoid endless calls or other avoid mistakes 
+              when you have to call the overwritten method. 
+              <LI>Please add JavaDoc to every method/class when you working on 
+              this page. When you are not 100% sure about what you read please 
+              enlose the changed lines into "&lt;review&gt;" and 
+              "&lt;/review&gt;" to indicate what you changed and gave up for a 
+              review. When someone reviewed it just remove this marks, thanx. 
+              </LI></UL>
+            <P></P>
+            <H2>Coding a Class</H2>
+            <P><PRE class=code>/*
+ * JBoss, the OpenSource J2EE webOS
+ *
+ * Distributable under LGPL license.
+ * See terms of license at gnu.org.
+ */
+
+package x;
+
+// EXPLICIT IMPORTS
+import a.b.C1; // GOOD
+import a.b.C2;
+import a.b.C3;
+
+// DO NOT WRITE
+import a.b.*;  // BAD
+
+// DO NOT USE "TAB" TO INDENT CODE USE *3* SPACES FOR PORTABILITY AMONG EDITORS
+
+/**
+ * &lt;description&gt; 
+ *
+ * @see &lt;related&gt;
+ * @author  &lt;a href="mailto:{email}"&gt;{full name}&lt;/a&gt;.
+ * @author  &lt;a href="mailto:marc@jboss.org"&gt;Marc Fleury&lt;/a&gt;
+ * @version $Revision: 1.2 $
+ *   
+ * &lt;p&gt;&lt;b&gt;Revisions:&lt;/b&gt;
+ *
+ * &lt;p&gt;&lt;b&gt;yyyymmdd author:&lt;/b&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt; explicit fix description (no line numbers but methods) go 
+ *            beyond the cvs commit message
+ * &lt;/ul&gt;
+ *  eg: 
+ * &lt;p&gt;&lt;b&gt;20010516 marc fleury:&lt;/b&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt; Ask all developers to clearly document the Revision, 
+ *            changed the header.  
+ * &lt;/ul&gt;
+ */
+public class X
+   extends Y
+   implements Z
+{
+   // Constants -----------------------------------------------------
+   
+   // Attributes ----------------------------------------------------
+   
+   // Static --------------------------------------------------------
+   
+   // Constructors --------------------------------------------------
+   
+   // Public --------------------------------------------------------
+   
+   public void startService() throws Exception
+   { // Use the newline for the opening bracket so we can match top and bottom bracket visually
+      
+      Class cls = Class.forName(dataSourceClass);
+      vendorSource = (XADataSource)cls.newInstance();
+      
+      // JUMP A LINE BETWEEN LOGICALLY DISCTINT **STEPS** AND ADD A LINE OF COMMENT TO IT
+      cls = vendorSource.getClass();
+      
+      if(properties != null &amp;&amp; properties.length() &gt; 0)
+      {
+      
+         try
+         {
+         }
+         catch (IOException ioe)
+         {
+         }
+         for (Iterator i = props.entrySet().iterator(); i.hasNext();)
+         {
+            
+            // Get the name and value for the attributes
+            Map.Entry entry = (Map.Entry) i.next();
+            String attributeName = (String) entry.getKey();
+            String attributeValue = (String) entry.getValue();
+            
+            // Print the debug message
+            log.debug("Setting attribute '" + attributeName + "' to '" +
+               attributeValue + "'");
+            
+            // get the attribute 
+            Method setAttribute =
+            cls.getMethod("set" + attributeName,
+               new Class[] { String.class });
+            
+            // And set the value  
+            setAttribute.invoke(vendorSource,
+               new Object[] { attributeValue });
+         }
+      }
+      
+      // Test database
+      vendorSource.getXAConnection().close();
+      
+      // Bind in JNDI
+      bind(new InitialContext(), "java:/"+getPoolName(),
+         new Reference(vendorSource.getClass().getName(),
+            getClass().getName(), null));
+   }
+
+   // Z implementation ----------------------------------------------
+   
+   // Y overrides ---------------------------------------------------
+   
+   // Package protected ---------------------------------------------
+   
+   // Protected -----------------------------------------------------
+   
+   // Private -------------------------------------------------------
+   
+   // Inner classes -------------------------------------------------
+}
+      </PRE>
+            <P></P>
+            <H2>Coding an Interface</H2>
+            <P><PRE class=code>/*
+ * JBoss, the OpenSource J2EE webOS
+ *
+ * Distributable under LGPL license.
+ * See terms of license at gnu.org.
+ */
+
+package x;
+
+// EXPLICIT IMPORTS
+import a.b.C1; // GOOD
+import a.b.C2;
+import a.b.C3;
+
+// DO NOT WRITE
+import a.b.*;  // BAD
+
+// DO NOT USE "TAB" TO INDENT CODE USE *3* SPACES FOR PORTABILITY AMONG EDITORS
+
+/**
+ * &lt;description&gt; 
+ *
+ * @see &lt;related&gt;
+ * @author  &lt;a href="mailto:{email}"&gt;{full name}&lt;/a&gt;.
+ * @author  &lt;a href="mailto:marc@jboss.org"&gt;Marc Fleury&lt;/a&gt;
+ * @version $Revision: 1.2 $
+ *   
+ * &lt;p&gt;&lt;b&gt;Revisions:&lt;/b&gt;
+ *
+ * &lt;p&gt;&lt;b&gt;yyyymmdd author:&lt;/b&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt; explicit fix description (no line numbers but methods) go 
+ *            beyond the cvs commit message
+ * &lt;/ul&gt;
+ *  eg: 
+ * &lt;p&gt;&lt;b&gt;20010516 marc fleury:&lt;/b&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt; Ask all developers to clearly document the Revision, 
+ *            changed the header.  
+ * &lt;/ul&gt;
+ */
+public interface X
+   extends Y
+{
+   int MY_STATIC_FINAL_VALUE = 57;
+
+   ReturnClass doSomething() throws ExceptionA, ExceptionB;
+   
+}
+
+</td>
+<!--结束正文-->
+<td width='1%'></td>
+</tr>
+</table>
+<!--结束中部-->
+
+<!--开始底部--> 
+<hr width='98%' noshade="noshade" size="1">                   
+<script language="javascript" src="../public/bottom.js"></script>
+<!--结束底部-->                   
+</body>
+</html>

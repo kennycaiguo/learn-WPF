@@ -1,0 +1,39 @@
+/* JFox, A Open Source J2EE Application Server from huihoo       // head
+ *
+ * Copyright (C) 2002,2003 huihoo.org
+ *
+ * Distributable under GNU LGPL license
+ * See the GNU Lesser General Public License for more details from gnu.org
+ *
+ * For more information, visit:
+ * http://www.huihoo.org/jfox
+ */
+
+package org.huihoo.jfox;
+
+import java.util.Map;                                             // import java class by single
+import java.util.HashMap;
+import javax.management.MBeanServer;                              // import javax class by single
+import javax.management.MBeanInfo;
+                                                                  // blank line
+import org.huihoo.jfox.jndi.Server;                               // import other class
+
+/**                                                               // class javadoc
+ *
+ * @author <a href="mailto:young_yy@hotmail.com">Young Yang</a>   // author with email
+ */
+
+public class Test {
+
+  /**                                                             // method javadoc, if needed
+   * application entry
+   * @param args
+   * @return void
+   */
+	public static void main(String[] args){
+
+	}
+
+}
+
+

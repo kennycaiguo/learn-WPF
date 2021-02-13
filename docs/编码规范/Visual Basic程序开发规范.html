@@ -1,0 +1,997 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Visual Basic 5</title>
+<meta name="Microsoft Border" content="tb, default">
+</head>
+
+<body bgcolor="#F4FAFF"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<table border="0" width="100%">
+  <tr>
+    <td width="50%">
+      <p align="center"><b><font size="5"><i>Yorgo Sun 的园地</i></font></b></td> 
+    <td width="50%">
+      <p align="right">[<a href="../index.htm">返回首页</a>]</td>
+  </tr>
+</table>
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+<p class="MsoNormal" align="center" style="text-align:center">　</p>
+<p class="MsoNormal" align="center" style="text-align:center"><b><span lang="EN-US" style="font-size:15.0pt;mso-bidi-font-size:12.0pt;font-family:宋体">Visual 
+Basic 5.0/6.0程序开发规范<o:p>
+</o:p>
+</span></b></p>
+<p class="MsoNormal"><b><span style="font-size:12.0pt;font-family:宋体">说明：</span></b><span style="font-size:12.0pt;font-family:宋体">本文档是项目小组进行代码检查的依据文件。<b><span lang="EN-US"><o:p>
+</o:p>
+</span></b></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt"><b><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; 
+</span></span><span style="font-size:12.0pt;font-family:宋体">命名规范<span lang="EN-US"><o:p>
+</o:p>
+</span></span></b></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">文件命名</span></b><span style="font-size:12.0pt;font-family:宋体">：文件应该以<b><i><u>标志文件属性的前缀<span lang="EN-US">+标志该文件功能的英文词组或词组</span></u></i></b>缩写构成。前缀采用<b><i>小写</i></b>，词组中每个词的首字母应该<b><i>大写</i></b>，某写专有名词或缩写按照<b><i>习惯用法</i></b>确定大小写，如<span lang="EN-US">:MDI、ActivtX等。<o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="text-indent:24.0pt;mso-char-indent-count:2.0;
+mso-char-indent-size:12.0pt"><span style="font-size:12.0pt;font-family:宋体">具体前缀如下：<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<table border="1" cellspacing="0" cellpadding="0" style="margin-left:18.0pt;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt">
+  <tr>
+    <td width="284" valign="top" style="width:213.05pt;border:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><b><span style="font-size:12.0pt;font-family:宋体">文件类型<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></b></p>
+    </td>
+    <td width="284" valign="top" style="width:213.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><b><span style="font-size:12.0pt;font-family:宋体">前缀<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></b></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="284" valign="top" style="width:213.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">MDIFORM<b><o:p>
+      </o:p>
+      </b></span></p>
+    </td>
+    <td width="284" valign="top" style="width:213.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">mdi<b><o:p>
+      </o:p>
+      </b></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="284" valign="top" style="width:213.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">FORM<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="284" valign="top" style="width:213.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">frm<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="284" valign="top" style="width:213.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">CLASS<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="284" valign="top" style="width:213.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">cls<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="284" valign="top" style="width:213.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">MODULE<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="284" valign="top" style="width:213.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">mod<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="284" valign="top" style="width:213.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">ActiveX部件(OCX、DLL)<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="284" valign="top" style="width:213.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">待定<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="284" valign="top" style="width:213.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">动态链接库<span lang="EN-US">(DLL)<o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+    <td width="284" valign="top" style="width:213.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">待定<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="284" valign="top" style="width:213.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal">&nbsp;<b><span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><o:p>
+      </o:p>
+      </span></b></p>
+    </td>
+    <td width="284" valign="top" style="width:213.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal">&nbsp;<b><span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><o:p>
+      </o:p>
+      </span></b></p>
+    </td>
+  </tr>
+</table>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">&nbsp;<o:p>
+</o:p>
+</span></b></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">变量及对象命名</span></b><span style="font-size:12.0pt;font-family:
+宋体">：变量及对象采用匈牙利命名法，任何变量由三部分组成，<b><i><u>标志变量作用范围的标志<span lang="EN-US">+标志变量类型的标志+标志该文件功能的英文词组或词组缩写</span></u></i></b>构成。作用范围标志及变量类型标志采用小写，词组中每个词的首字母应该大写，某写专有名词或缩写按照习惯用法确定大小写，如<span lang="EN-US">:MDI、ActivtX等。<o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style="font-size:12.0pt;
+font-family:宋体">常用标志如下：<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<table border="1" cellspacing="0" cellpadding="0" style="margin-left:18.0pt;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt">
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><b><span style="font-size:12.0pt;font-family:宋体">内容<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></b></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><b><span style="font-size:12.0pt;font-family:宋体">标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></b></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><b><span style="font-size:12.0pt;font-family:宋体">说明<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></b></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">全局标量<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">g_<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">作用域标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">模块级变量<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">m_<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">作用域标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">局部变量<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">无<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">作用域标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Boolean<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">bln<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">简单类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Byte<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">byt<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">简单类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Integer<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">int<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">简单类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Long<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">lng<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">简单类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Single<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">sng<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">简单类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Float<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">flt<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">简单类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Double<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">dbl<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">简单类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">String<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">str<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">简单类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Object<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">obj<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">简单类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Menu<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">mnu<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">TextBox<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">txt<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">CommandButton<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">cmb<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Frame<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">fra<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">CheckBox<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">chk<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">OptionButton<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">opt<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">ListBox<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">lst<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">ComboBox<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">cbo<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Label<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">lbl<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">用户自定义<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">udt<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;font-family:宋体">对象类型标志<span lang="EN-US"><o:p>
+      </o:p>
+      </span></span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal">&nbsp;<span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal">&nbsp;<span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal">&nbsp;<span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="189" valign="top" style="width:142.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal">&nbsp;<span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal">&nbsp;<span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="189" valign="top" style="width:142.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal">&nbsp;<span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+</table>
+<p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">&nbsp;<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">函数命名</span></b><span style="font-size:12.0pt;font-family:宋体">：函数由标志函数功能的英文单词或词组构成。函数的首字母应该<b><i>大写</i></b>，词组中每个词的首字母也应该<b><i>大写</i></b>，某写专有名词或缩写按照<b><i>习惯用法</i></b>确定大小写，如<span lang="EN-US">:MDI、ActivtX等。<o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style="font-size:12.0pt;
+font-family:宋体">函数命名的具体要求暂时很难有明确的规定。<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">数据库表命名</span></b><span style="font-size:12.0pt;font-family:
+宋体">：以系统名称的<span lang="EN-US">3位缩写作为前缀，前缀采用大写；以能够比较准确地反映表的性质的英文单词或词组作为后缀；前缀与后缀之间采用“_”符号来连接，如下(第二行表示长度)：<o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style="font-size:12.0pt;
+font-family:宋体">系统名称缩写<span lang="EN-US"> + _ + 
+反映表性质的后缀<o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt;text-indent:30.75pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">3<b><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</span></b>1<span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;30<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><span style="mso-spacerun: yes">&nbsp;&nbsp; 
+</span>例如：<b><o:p>
+</o:p>
+</b></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">数据库字段命名规范</span></b><span style="font-size:12.0pt;font-family:
+宋体">：所有的字段以表名或表名的缩写作为前缀，前缀的长度应不大于<span lang="EN-US">6位，前缀全部采用大写；后缀由两部分组成，第一部分为类型标志符，第二部分为字段标志，采用能够比较准确地反映表的性质的英文单词或词组。<b><o:p>
+</o:p>
+</b></span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style="font-size:12.0pt;
+font-family:宋体">表名前缀<span lang="EN-US"> + _ + 类型标志符 + 
+字段标志 <o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><span style="mso-spacerun: yes">&nbsp; 
+</span>&lt;=6<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;</span>3<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;</span>&lt;20<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style="font-size:12.0pt;
+font-family:宋体">例如：<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">&nbsp;<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt"><b><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; 
+</span></span><span style="font-size:12.0pt;font-family:宋体">书写格式<span lang="EN-US"><o:p>
+</o:p>
+</span></span></b></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">缩进</span></b><span style="font-size:12.0pt;font-family:宋体">：缩进采用<span lang="EN-US">4个字符。<o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">程序段</span></b><span lang="EN-US" style="font-size:12.0pt;
+font-family:宋体">: 
+程序段之间、函数、过程之间应该有两行空行。<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">语句</span></b><span style="font-size:12.0pt;font-family:宋体">：为保证代码的易读性，要求完整地将语句写出，并且不要在同一行写完一条语句。<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><i><span style="font-size:
+12.0pt;font-family:宋体">正确的写法</span></i></b><span style="font-size:12.0pt;
+font-family:宋体">：<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">If 
+… Then<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">End 
+if <o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Do 
+While …<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Loop 
+<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">For 
+变量=初始值 To 终止值<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Next 
+变量。<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><i><span style="font-size:
+12.0pt;font-family:宋体;color:red">错误的写法</span></i></b><span style="font-size:
+12.0pt;font-family:宋体">：<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体;color:red">If 
+… Then …或 If … Then…End If<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体;color:red">If 
+… Then<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体;color:red">EndI<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体;color:red">For 
+变量=初始值 To 终止值<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体;color:red">Next。</span><span lang="EN-US" style="font-size:12.0pt;font-family:宋体"><o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt"><b><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; 
+</span></span><span style="font-size:12.0pt;font-family:宋体">代码要求<span lang="EN-US"><o:p>
+</o:p>
+</span></span></b></p>
+<p class="MsoNormal" style="text-indent:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">一般原则：<span lang="EN-US"><o:p>
+</o:p>
+</span></span></b></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">1．写清晰的代码：比如，写代码应该注意程序动作的连续性，不要在某处对一个变量赋值，又在100行代码以后才使用它等等。<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">2．写简单的代码：比如，为提高效率或为了使代码看来短一些而采用一些技巧等等。<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">3．时刻注意系统开销：比如，不要保留不使用的变量和代码；不要为数组定义超过使用需要的空间；在同一窗体中若使用多个同类型的对象，最好采用对象数组等等。<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">4．保证系统的模块化：比如，尽量少使用全局变量；在使用全局变量时应尽量避免在多处都可写的情况发生；尽量少使用Goto语句。<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">5．<b><i>时刻注意对浮点数据类型的处理</i></b>：比如，若浮点类型变量dblA,dblB进行比较时，采用 
+If dblA-dblB=0 Then … End If 的判断是错误的。<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">6.使用的变量都应该预先定义，若非特殊情况，<b><i>应该准确地定义出变量的类型</i></b>。<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style="font-size:12.0pt;
+font-family:宋体">正确的写法：<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体">Dim 
+strSql As String<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span style="font-size:12.0pt;
+font-family:宋体;color:red">错误的写法：<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><span lang="EN-US" style="font-size:12.0pt;font-family:宋体;color:red">Dim 
+strSql<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">函数和过程的使用</span></b><span style="font-size:12.0pt;font-family:
+宋体">：当某段代码的使用次数超过一次而又具有一定的整体性时，应该采用函数或过程的方式来处理；在窗体中出现的响应事件的函数的代码长度应该限制在<span lang="EN-US">500行以内，否则使用过程或函数来实现；当某个模块中的代码太长时，应尽量根据语句的意群分割为过程或函数。<o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><span style="font-size:12.0pt;
+font-family:宋体">程序注释</span></b><span style="font-size:12.0pt;font-family:宋体">：程序的注释包括<b><i>程序头说明</i></b>及<b><i>代码注释</i></b>。<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><i><span style="font-size:
+12.0pt;font-family:宋体">程序头说明</span></i></b><span style="font-size:12.0pt;
+font-family:宋体">：说明本程序的作者；代码开始时间、完成时间、需求或设计文档编号；需求变动的开始时间、完成时间、相应需求或设计文档编号；调用的外部函数或模块；被哪些模块调用。<span lang="EN-US"><o:p>
+</o:p>
+</span></span></p>
+<p class="MsoNormal" style="margin-left:18.0pt"><b><i><span style="font-size:
+12.0pt;font-family:宋体">代码注释</span></i></b><span style="font-size:12.0pt;
+font-family:宋体">：当代码涉及到业务时应该加注释；在函数和过程及程序段前应该加注释表明函数或过程或程序段的功能，入口参数的意义，返回值的意义；对于全局变量，模块级变量应该加注释；对重要的局部变量也应该加注释。<span lang="EN-US"><o:p>
+</o:p>
+</span></span>
+
+<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<hr width="90%">
+<p align="center">版权所有(C) 1997-2001 Yorgo Sun</p> 
+
+<div align="center">
+  <center>
+<table border="0" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td align="left"><a href="http://www.webunion.com"><img SRC="http://www.webunion.com/boxlogo.gif" width="40" height="40" border="1" ALT="WU"></a></td> 
+    <td align="left"><a href="http://www.webunion.com/cgi-localbin/click.cgi?win3658:002" TARGET="_top"><img width="400" height="40" src="http://www.webunion.com/cgi-localbin/bserve.cgi?win3658:002" alt="Banner from WebUnion Chinese Network" border="1"></a></td> 
+  </tr> 
+  <tr> 
+    <td colspan="2" border="1" align="left"><p align="center"><font size="-1"><a href="http://www.webunion.com/index.html" TARGET="_top">WebUnion Chinese Advertisement    
+    Network - Click Here to join</a></font> </td>   
+  </tr>  
+</table></center>
+</div>
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

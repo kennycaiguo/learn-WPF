@@ -1,0 +1,1512 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+
+<TR>
+<TD width=507 height=4><B>公司软件部VB组代码撰写暂行约定</B><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+<TBODY>
+<TR>
+<TD bgColor=#ff9900 height=1></TD></TR></TBODY></TABLE></TD></TR>
+<TR>
+<TD vAlign=top colSpan=2 height=180>
+<DIV align=right>
+<P>作者: Sproll　</P>
+<P align=left>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><B><SPAN 
+style="FONT-FAMILY: 宋体">一、变量和对象<SPAN lang=EN-US> 
+<O:P></O:P></SPAN></SPAN></B></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>程序中的变量遵循匈牙利表示法，即“前缀+变量含义”，变量的含义为一个或多个英文单词，每个单词的第一个字母大写，不要用汉语拼音代替。变量前缀为三个小写字母示意其类型，所需添加的前缀遵循微软在MSDN中的建议。列表如下： 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN><B>基本数据类型 <O:P></O:P></B></SPAN></FONT></P>
+<DIV align=left>
+<TABLE id=Table1 
+style="MARGIN-LEFT: 24pt; WIDTH: 73.82%; mso-cellspacing: 1.5pt; mso-padding-alt: 3.75pt 3.75pt 3.75pt 3.75pt" 
+cellPadding=0 width="73%" border=1>
+<TBODY>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">变量类型<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">前缀<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">示例<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.15pt">
+<TD vAlign=top width="39%" height=20>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Boolean <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=20>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">bln 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=20>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">blnFound <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Byte 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">byt 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">bytRasterData <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Collection object <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">col 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">colWidgets <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Currency <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">cur 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">curRevenue <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Date 
+(Time) <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dtm 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dtmStart <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.15pt">
+<TD vAlign=top width="39%" height=20>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Double 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=20>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dbl 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=20>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dblTolerance <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Error 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">err 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">errOrderNum <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Integer <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">int 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">intQuantity <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Long 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lng 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lngDistance <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Object 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">obj 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">objCurrent <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.15pt">
+<TD vAlign=top width="39%" height=20>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Single 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=20>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">sng 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=20>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">sngAverage <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">String 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">str 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">strFName <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">User-defined type <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">udt 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">udtEmployee <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 15.9pt">
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Variant <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">vnt 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=21>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">vntCheckSum 
+<O:P></O:P></SPAN></FONT></P></TD></TR></TBODY></TABLE></DIV>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN><O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN><B>控件或窗体、模块对象 <O:P></O:P></B></SPAN></FONT></P>
+<DIV align=left>
+<TABLE id=Table2 
+style="MARGIN-LEFT: 24pt; WIDTH: 73.72%; mso-cellspacing: 1.5pt; mso-padding-alt: 3.75pt 3.75pt 3.75pt 3.75pt" 
+cellPadding=0 width="73%" border=1>
+<TBODY>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">控件类型<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">前缀<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">示例<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">3D 
+Panel <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">pnl 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">pnlGroup <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">ADO 
+Data <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">ado 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">adoBiblio <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Animated button <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">ani 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">aniMailBox <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Check 
+box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">chk 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">chkReadOnly <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Combo 
+box, drop-down list box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">cbo 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">cboEnglish <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Command button <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">cmd 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">cmdExit <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Common 
+dialog <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dlg 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dlgFileOpen <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Communications <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">com 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">comFax 
+<O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Control (在过程中使用的类型未明的控件变量) 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">ctr 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">ctrCurrent <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Data 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dat 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">datBiblio <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Data-bound combo box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dbcbo 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dbcboLanguage <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Data-bound grid <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dbgrd 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dbgrdQueryResult <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Data-bound list box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dblst 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dblstJobType <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Data 
+combo <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dbc 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dbcAuthor <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Data 
+grid <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dgd 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dgdTitles <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Data 
+list <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dbl 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dblPublisher <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Data 
+repeater <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">drp 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">drpLocation <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Date 
+picker <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dtp 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dtpPublished <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Directory list box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dir 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dirSource <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Drive 
+list box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">drv 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">drvTarget <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">File 
+list box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">fil 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">filSource <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Flat 
+scroll bar <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">fsb 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">fsbMove <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Form 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">frm 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">frmEntry <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Frame 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">fra 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">fraLanguage <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Gauge 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">gau 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">gauStatus <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Graph 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">gra 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">graRevenue <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Grid 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">grd 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">grdPrices <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Hierarchical flexgrid <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">flex 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">flexOrders <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Horizontal scroll bar <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">hsb 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">hsbVolume <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Image 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">img 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">imgIcon <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Image 
+combo <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">imgcbo 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">imgcboProduct <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">ImageList <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">ils 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">ilsAllIcons <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Label 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lbl 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lblHelpMessage <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Lightweight check box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lwchk 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lwchkArchive <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Lightweight combo box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lwcbo 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lwcboGerman <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Lightweight command button 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lwcmd 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lwcmdRemove <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Lightweight frame <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lwfra 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lwfraSaveOptions <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Lightweight horizontal scroll bar 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lwhsb 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lwhsbVolume <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Lightweight list box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lwlst 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lwlstCostCenters <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Lightweight option button 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lwopt 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lwoptIncomeLevel <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Lightweight text box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lwtxt 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lwoptStreet <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Lightweight vertical scroll bar 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lwvsb 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lwvsbYear <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Line 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lin 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">linVertical <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">List 
+box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lst 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lstPolicyCodes <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">ListView <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">lvw 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">lvwHeadings <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">MAPI 
+message <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">mpm 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">mpmSentMessage <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">MAPI 
+session <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">mps 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">mpsSession <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">MCI 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">mci 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">mciVideo <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 19.5pt">
+<TD vAlign=top width="40%" height=26>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Menu 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%" height=26>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">mnu 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=26>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">mnuFileOpen <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Month 
+view <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">mvw 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">mvwPeriod <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">MS 
+Chart <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">ch 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">chSalesbyRegion <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">MS 
+Flex grid <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">msg 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">msgClients <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">MS Tab 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">mst 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">mstFirst <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">OLE 
+container <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">ole 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">oleWorksheet <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Option 
+button <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">opt 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">optGender <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Picture box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">pic 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">picVGA 
+<O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Picture clip <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">clp 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">clpToolbar <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">ProgressBar <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">prg 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">prgLoadFile <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Remote 
+Data <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">rd 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">rdTitles <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">RichTextBox <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">rtf 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">rtfReport <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Shape 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">shp 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">shpCircle <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Slider 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">sld 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">sldScale <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Spin 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">spn 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">spnPages <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">StatusBar <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">sta 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">staDateTime <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">SysInfo <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">sys 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">sysMonitor <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">TabStrip <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">tab 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">tabOptions <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Text 
+box <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">txt 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">txtLastName <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Timer 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">tmr 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">tmrAlarm <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Toolbar <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">tlb 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">tlbActions <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">TreeView <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">tre 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">treOrganization <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">UpDown 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">upd 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">updDirection <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="40%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Vertical scroll bar <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="18%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">vsb 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">vsbRate 
+<O:P></O:P></SPAN></FONT></P></TD></TR></TBODY></TABLE></DIV>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN><B>数据库对象 <O:P></O:P></B></SPAN></FONT></P>
+<DIV align=left>
+<TABLE id=Table3 
+style="MARGIN-LEFT: 24pt; WIDTH: 73.72%; mso-cellspacing: 1.5pt; mso-padding-alt: 3.75pt 3.75pt 3.75pt 3.75pt" 
+cellPadding=0 width="73%" border=1>
+<TBODY>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">数据库对象<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">前缀<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">示例<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Container <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">con 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">conReports <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Database <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">db 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dbAccounts <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">DBEngine <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dbe 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">dbeJet 
+<O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Document <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">doc 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">docSalesReport <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Field 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">fld 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">fldAddress <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Group 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">grp 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">grpFinance <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">Index 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">ix 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">idxAge 
+<O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Parameter <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">prm 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">prmJobCode <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">QueryDef <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">qry 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">qrySalesByRegion <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Recordset <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">rec 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">recForecast <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Relation <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">rel 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">relEmployeeDept <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">TableDef <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">tbd 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">tbdCustomers <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">User 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">usr 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">usrNew 
+<O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Workspace <O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">wsp 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">wspMine 
+<O:P></O:P></SPAN></FONT></P></TD></TR></TBODY></TABLE></DIV>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>除此之外，还要对于一些不同的级别的变量加额外的前缀，举例如下： <O:P></O:P></SPAN></FONT></P>
+<DIV align=left>
+<TABLE id=Table4 
+style="MARGIN-LEFT: 24pt; mso-cellspacing: 1.5pt; mso-padding-alt: 3.75pt 3.75pt 3.75pt 3.75pt; mso-table-layout-alt: fixed" 
+cellPadding=0 border=1>
+<TBODY>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">级别<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">前缀<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">示例<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">全局变量<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">g 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">gstrUserName <O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR style="HEIGHT: 17.3pt">
+<TD vAlign=top width="39%" height=23>
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">模块级变量<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%" height=23>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">m 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%" height=23>
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">mblnCalcInProgress 
+<O:P></O:P></SPAN></FONT></P></TD></TR>
+<TR>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN style="FONT-FAMILY: 宋体">过程级变量<SPAN 
+lang=EN-US> <O:P></O:P></SPAN></SPAN></FONT></P></TD>
+<TD vAlign=top width="19%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US style="FONT-FAMILY: 宋体">None 
+<O:P></O:P></SPAN></FONT></P></TD>
+<TD vAlign=top width="39%">
+<P class=MsoNormal><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">dblVelocity 
+<O:P></O:P></SPAN></FONT></P></TD></TR></TBODY></TABLE></DIV>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>对于用户使用type关键字定义的数据类型，在三个字母的前缀前再加u。例如：一个用户定义的叫Client类型的变量，其前缀为ucli。 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>关于变量使用方面，建议如下： <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">1、变量要先声明再使用（在窗体代码的第一行加上Option 
+Explicit，来禁止未声明变量的调用，或者在菜单Tools-&gt;Options-&gt;Editor中选中Require Variable 
+Declaration项。） <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US 
+style="FONT-FAMILY: 宋体">2、尽量使用Long型的变量来代替Integer类型，这样做可以减少一些数据溢出的错误，而且，在Win32平台上，CPU处理32位的数据比16位的数据速度更快。 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">3、尽量少用Variant变量，尽可能地给出每一个变量明确的类型 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">4、尽量不在API声明中使用As Any，如果遇到其默认的参数为As 
+Any的情况，则针对每一个所需的参数类型声明该API函数，例如ReadFile函数默认的声明为： <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">Public Declare Function <B>ReadFile</B> Lib 
+"kernel32" Alias "ReadFile" (ByVal hFile As Long, <B>lpBuffer As Any</B>, ByVal 
+nNumberOfBytesToRead As Long, lpNumberOfBytesRead As Long, lpOverlapped As 
+OVERLAPPED) As Long <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+style="FONT-FAMILY: 宋体">小组成员须将其改为：<SPAN lang=EN-US> 
+<O:P></O:P></SPAN></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">Public Declare Function <B>ReadFileByt</B> 
+Lib "kernel32" Alias "ReadFile" (ByVal hFile As Long, <B>lpBuffer As Byte</B>, 
+ByVal nNumberOfBytesToRead As Long, lpNumberOfBytesRead As Long, lpOverlapped As 
+OVERLAPPED) As Long <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">Public Declare Function <B>ReadFileInt</B> 
+Lib "kernel32" Alias "ReadFile" (ByVal hFile As Long, <B>lpBuffer As 
+Integer</B>, ByVal nNumberOfBytesToRead As Long, lpNumberOfBytesRead As Long, 
+lpOverlapped As OVERLAPPED) As Long <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">Public Declare Function <B>ReadFileLng</B> 
+Lib "kernel32" Alias "ReadFile" (ByVal hFile As Long, <B>lpBuffer As Long</B>, 
+ByVal nNumberOfBytesToRead As Long, lpNumberOfBytesRead As Long, lpOverlapped As 
+OVERLAPPED) As Long <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">5、不要将类型转换的工作交给VB自动去做，而使用以下类型转换函数 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CBool(expression)</SPAN><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体; mso-font-kerning: 0pt"> <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CByte(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CCur(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CDate(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CDbl(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CDec(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CInt(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CLng(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CSng(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CStr(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">CVar(expression) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><B><SPAN 
+style="FONT-FAMILY: 宋体">二、窗体布局<SPAN lang=EN-US> 
+<O:P></O:P></SPAN></SPAN></B></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>窗体内各个控件的布局，建议如下： <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>1、所有与窗体上、下、左、右四条边界相邻的控件与窗体的边缘相距120缇 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>2、各个控件之间的间距为：相关控件60缇，非相关控件120缇 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>3、按钮控件大小建议为高300缇，长1200缇，这也是操作系统默认按钮的大小 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>4、各个控件的字体建议为宋体五号字 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><B><SPAN 
+style="FONT-FAMILY: 宋体">三、代码<SPAN lang=EN-US> 
+<O:P></O:P></SPAN></SPAN></B></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>1、程序的启动对象 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>程序一率从Main()函数开始执行（选择菜单View-&gt;Project Explorer，在工程窗口内右键点击当前项目，选择菜单“… 
+Properties”-&gt;General，在Startup Object下拉框中选择sub main） 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">2、代码缩进与间距 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>每个单位的代码缩进为一个TAB，非相关代码留一行空白的间隔，例如： <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Private Function GetMax(Byref lngArray() As Long) As 
+Long <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>GetMax=0 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>Dim lngMax As Long <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>Dim lngCount as long <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>For lngCount =0 to Ubound(lngArray) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>If 
+lngArray (lngCount)&gt;lngMax Then <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; </SPAN>lngMax=lngArray(lngCount) 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>End 
+If <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>Next <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">End Function <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>3、注译 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>程序的注译越详尽，越仔细越好。以下提及的，必须加注译。 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>程序中声明的每一个变量，能加上注译最好，至少用来运算或者保存关键数据的变量必须加上注译。 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>对于每一段逻辑上实现某个基本功能的几句代码，最好在其上一行加上简单注译。 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>对于每一个自定义的函数，不管大小都必须加上注译，而且注译的格式如下： <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'****************************************************** 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">' <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'函数所实现的功能 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'函数的参数1的含义：XXXXX <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'函数的参数2的含义：XXXXX <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'…… <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'函数返回值所代表的错误信息：XXXXX（函数尽可能声明为Function，不要声明为Sub， 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'函数的返回值为0表示执行成功，为其它值表示执行失败） 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">' <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'****************************************************** 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Public(Private) Function ForExample(……………………) As Long 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'………………………………………… <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">End Function <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>4、错误处理（未定） <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>在Main()函数或主窗体Load过程中添加如下代码： <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'****************************************************** 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">' <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'打开错误日志文件，在Form_Unload()中关闭 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">' <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'****************************************************** 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-spacerun: yes">&nbsp;</SPAN> 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>Dim strExePath As String <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>If Right(App.Path, 1) = "\" Then <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>strExePath = App.Path <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>Else <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>strExePath = App.Path &amp; "\" <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>End If <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>intErrLogFileHandle = FreeFile() <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-INDENT: 21pt" align=left><FONT face=宋体><SPAN 
+lang=EN-US style="FONT-FAMILY: 宋体">Open strExePath + "Err.log" For Append Shared 
+As intErrLogFileHandle <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>在主窗体退出函数中添加如下代码： <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'****************************************************** 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">' <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'关闭错误日志文件 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">' <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'****************************************************** 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-spacerun: yes">&nbsp;</SPAN> 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>Close #intErrLogFileHandle <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>在某个Module中添加： <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'****************************************************** 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">' <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'写入错误日志 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">' <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">'****************************************************** 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Public Sub WriteErrLogFile(ByVal strSub As String, ByVal 
+strErr As String) <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>Print #intErrLogFileHandle, Date, Time, strSub, strErr 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">End Sub <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>在每个过程或自定义的函数中，使用如下的系统错误捕获机制： <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">Public Function ForExample(…………) As Long 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>On Error Goto FuncError <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>ForExample=True <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>……………………… <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>……………………… <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>Exit Function <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">FuncError: <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>ForExample=False <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>WriteErrLogFile " ForExample ", "错误号：" &amp; Err.Number &amp; "，错误源：" 
+&amp; Err.Source &amp; "，错误描述：" &amp; Err.Description 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>MsgBox <SPAN style="mso-spacerun: yes">&nbsp;</SPAN>"……… ", vbCritical 
+<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; 
+</SPAN>'在此作内存资源回收工作 <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">&nbsp; <O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal align=left><FONT face=宋体><SPAN lang=EN-US 
+style="FONT-FAMILY: 宋体">End Function </SPAN></FONT></P></DIV></TD></TR>

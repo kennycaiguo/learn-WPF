@@ -1,0 +1,659 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp -->
+<HTML><HEAD><TITLE>Visual Basic Coding Standards by Phil Fresle</TITLE>
+<META 
+content="www.VB-FAQ.com is a Microsoft Visual Basic support Web site,&#13;&#10;focused entirely on problem-solving, proper coding techniques, and in supporting both seasoned and novice programmers." 
+name=description>
+<META 
+content="Visual Basic,Microsoft,VB,Windows95,API,ADO,ADODB,DAO,SQL, &#13;&#10;Windows98,WindowsNT,Windows2000,VB6,VB7,books,Data Objects,How to,Forms,Class modules, &#13;&#10;modules,ActiveX,DLL,OCX,controls,User Controls,properties,methods,objects,recordset,query" 
+name=keywords>
+<META content=text/html name=resource-type>
+<META content=Global name=distribution>
+<META content=www.VB-FAQ.com name=copyright>
+<META content="HTML Services" name=author>
+<META content=All name=robots>
+<META content=General name=rating>
+<META http-equiv=Content-Language content=en-us>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META http-equiv=Content-Language content=en-us>
+<META content="MSHTML 5.50.4134.100" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId>
+<SCRIPT language=JavaScript>
+<!--
+
+if (document.images) {
+  image1on = new Image();
+  image1on.src = "../../images/home2.jpg";
+
+  image2on = new Image();
+  image2on.src = "../../images/faq2.jpg";
+
+  image3on = new Image();
+  image3on.src = "../../images/resources2.jpg";
+
+  image4on = new Image();
+  image4on.src = "../../images/contrib2.jpg";
+
+  image5on = new Image();
+  image5on.src = "../../images/books2.jpg";
+  
+  image6on = new Image();
+  image6on.src = "../../images/articles2.jpg";
+  
+  image7on = new Image();
+  image7on.src = "../../images/search2.jpg";
+
+  image1off = new Image();
+  image1off.src = "../../images/home1.jpg";
+
+  image2off = new Image();
+  image2off.src = "../../images/faq1.jpg";
+
+  image3off = new Image();
+  image3off.src = "../../images/resources1.jpg";
+
+  image4off = new Image();
+  image4off.src = "../../images/contrib1.jpg";
+
+  image5off = new Image();
+  image5off.src = "../../images/books1.jpg";
+  
+  image6off = new Image();
+  image6off.src = "../../images/articles1.jpg";
+  
+  image7off = new Image();
+  image7off.src = "../../images/search1.jpg";
+
+}
+
+function changeImages() {
+  if (document.images) {
+    for (var i=0; i<changeImages.arguments.length; i+=2) {
+      document[changeImages.arguments[i]].src = eval(changeImages.arguments[i+1] + ".src");
+    }
+  }
+}
+
+// -->
+</SCRIPT>
+</HEAD>
+<BODY bgColor=#ffffff><FONT face=Verdana>
+<DIV align=left>
+<TABLE width=800 border=0>
+  <TBODY>
+  <TR>
+    <TD width=252><IMG 
+      src="Visual Basic Coding Standards by Phil Fresle.files/logo2.jpg" 
+      border=0> </TD>
+    <TD vAlign=top width=374>
+      <DIV align=left>
+      <TABLE height=99 cellPadding=2 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="100%" height=48></TD></TR>
+        <CENTER></TBODY></TABLE></DIV></CENTER></TD></TR></TBODY></TABLE></DIV></FONT>
+<DIV align=left>
+<TABLE height=1 cellSpacing=0 cellPadding=2 width=800 border=0>
+  <TBODY>
+  <TR>
+    <TD align=middle width=80 bgColor=#ffffff><A 
+      onmouseover="changeImages('image1', 'image1on')" 
+      onmouseout="changeImages('image1', 'image1off')" target=_top 
+      href="http://www.vb-faq.com/index.asp"><IMG alt=HOME 
+      src="Visual Basic Coding Standards by Phil Fresle.files/home1.jpg" 
+      border=0 name=image1></A></TD>
+    <TD align=middle width=80 bgColor=#ffffff><A 
+      onmouseover="changeImages('image2', 'image2on')" 
+      onmouseout="changeImages('image2', 'image2off')" target=_top 
+      href="http://www.vb-faq.com/faqs.asp"><IMG alt=FAQs 
+      src="Visual Basic Coding Standards by Phil Fresle.files/faq1.jpg" border=0 
+      name=image2></A></TD>
+    <TD align=middle width=80 bgColor=#ffffff><A 
+      onmouseover="changeImages('image6', 'image6on')" 
+      onmouseout="changeImages('image6', 'image6off')" target=_top 
+      href="http://www.vb-faq.com/articles.asp"><IMG 
+      alt="Articles on VB-FAQ.com" 
+      src="Visual Basic Coding Standards by Phil Fresle.files/articles1.jpg" 
+      border=0 name=image6></A></TD>
+    <TD align=middle width=80 bgColor=#ffffff><A 
+      onmouseover="changeImages('image3', 'image3on')" 
+      onmouseout="changeImages('image3', 'image3off')" target=_top 
+      href="http://www.vb-faq.com/dev_resources.asp"><IMG 
+      alt="Developer Resources" 
+      src="Visual Basic Coding Standards by Phil Fresle.files/resources1.jpg" 
+      border=0 name=image3></A></TD>
+    <TD align=middle width=80 bgColor=#ffffff><A 
+      onmouseover="changeImages('image4', 'image4on')" 
+      onmouseout="changeImages('image4', 'image4off')" target=_top 
+      href="http://www.vb-faq.com/contributors.asp"><IMG 
+      alt="VB-FAQ Contributors" 
+      src="Visual Basic Coding Standards by Phil Fresle.files/contrib1.jpg" 
+      border=0 name=image4></A></TD>
+    <TD align=middle width=80 bgColor=#ffffff><A 
+      onmouseover="changeImages('image5', 'image5on')" 
+      onmouseout="changeImages('image5', 'image5off')" target=_top 
+      href="http://www.vb-faq.com/booklist.asp"><IMG alt="Books and reviews" 
+      src="Visual Basic Coding Standards by Phil Fresle.files/books1.jpg" 
+      border=0 name=image5></A></TD>
+    <TD align=middle width=80 bgColor=#ffffff><A 
+      onmouseover="changeImages('image7', 'image7on')" 
+      onmouseout="changeImages('image7', 'image7off')" target=_top 
+      href="http://www.vb-faq.com/search.asp"><IMG alt=Search 
+      src="Visual Basic Coding Standards by Phil Fresle.files/search1.jpg" 
+      border=0 name=image7></A></TD></TR></TBODY></TABLE></DIV><FONT 
+face="Verdana, MS Sans Serif">
+<DIV align=left>
+<TABLE cellSpacing=0 cellPadding=2 width=800 border=0>
+  <TBODY>
+  <TR>
+    <TD width=223 bgColor=#800000>&nbsp;</TD>
+    <TD width=793 bgColor=#800000 color="#336699">
+      <P align=center> </P></TD></TR>
+  <TR>
+    <TD vAlign=top borderColorLight=#336699 align=left width=223 bgColor=#336699 
+    borderColorDark=#336699>&nbsp; </TD>
+    <TD vAlign=top align=left width=793><FONT face="Verdana, MS Sans Serif">
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="2%"></TD>
+          <TD width="98%"></FONT></FONT>
+            <P><FONT face=Verdana size=2>Visual Basic Coding 
+            Standards&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            </FONT><FONT face=Verdana size=1>by Phil Fresle</FONT></P>
+            <P><I><FONT face=Verdana size=1>Copyright 2000 Frez Systems 
+            Limited</FONT></I></P>
+            <P><I><FONT face=Verdana size=1>Last updated 
+            17-Apr-2000</FONT></I></P>
+            <P><A 
+            href="http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp#introduction"><FONT 
+            face=Verdana size=1>Introduction</FONT></A><FONT face=Verdana 
+            size=1><BR><A 
+            href="http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp#naming">Naming 
+            Conventions</A><BR><A 
+            href="http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp#variables">Use 
+            of Variables, Procedures and Constants</A><BR><A 
+            href="http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp#commenting">Commenting 
+            Code</A><BR><A 
+            href="http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp#formatting">Formatting 
+            Code</A><BR><A 
+            href="http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp#other">Other 
+            Coding Rules</A><BR><A 
+            href="http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp#boilerplates">Sample 
+            Boilerplates</A><BR><A 
+            href="http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp#samplecode">Sample 
+            Code Containing Error Handling</A><BR><A 
+            href="http://www.vb-faq.com/Articles/Fresle/VB_Coding_Standards.asp#reading">Further 
+            Reading</A><BR></FONT></P>
+            <H2><A name=introduction><FONT face=Verdana 
+            size=1>Introduction</FONT></A></H2>
+            <P><FONT face=Verdana size=1>These are the Visual Basic coding 
+            standards used by Frez Systems Limited. Programmers working for Frez 
+            Systems Limited are required to work to these standards unless a 
+            client has their own standards that they require to be 
+            adopted.</FONT></P>
+            <P><FONT face=Verdana size=1>These standards are being published on 
+            the web to help other programmers who may be in search of a starting 
+            point to their own set of coding standards. If you decide to use 
+            these standards as your own or part of your own you should include 
+            an acknowledgement to Frez Systems Limited in the text. You are 
+            forbidden from publishing these standards in order to make a 
+            profit.</FONT></P>
+            <P><FONT face=Verdana size=1>Where the programmer decides to deviate 
+            form the standards this must be for a good reason that must be 
+            documented within the code as a comment.</FONT></P>
+            <P><FONT face=Verdana size=1>Where code is imported, for instance, 
+            from the Visual Basic Windows API Viewer or from MSDN, it is NOT a 
+            requirement to change the code to reflect these standards. Although, 
+            where it is a sizeable piece of code, comments should be included 
+            stating that it is imported and from where it was 
+            imported.</FONT></P>
+            <P><FONT face=Verdana size=1>These standards only apply to new work, 
+            it is not a requirement that they be applied to existing 
+            code.</FONT></P>
+            <H2><A name=naming><FONT face=Verdana size=1>Naming 
+            Conventions</FONT></A></H2>
+            <P><FONT face=Verdana size=1>Providing a standard for naming 
+            variables, constants, functions, controls and modules makes your 
+            projects and code easier to follow by other programmers following 
+            the same standard.</FONT></P>
+            <H3><FONT face=Verdana size=1>Variable Naming</FONT></H3>
+            <P><FONT face=Verdana size=1>Variable names shall describe their 
+            use, shall be in mixed case with an initial upper case character for 
+            each word, and shall have 'Hungarian' prefixes that describe their 
+            type and scope. Abbreviations shall be avoided, but where they are 
+            used they are to be used consistently throughout the entire 
+            application.</FONT></P>
+            <P><FONT face=Verdana size=1>Hungarian prefixes not only identify 
+            the type of a variable but also have the advantage of avoiding 
+            confusion between variables and functions, methods or 
+            properties.</FONT></P>
+            <P><B><FONT face=Verdana size=1>Hungarian Type 
+            Prefixes:</FONT></B></P>
+            <TABLE width=450 border=1>
+              <THEAD>
+              <TR>
+                <TH><FONT face=Verdana size=1>Data Type</FONT></TH>
+                <TH><FONT face=Verdana size=1>Prefix</FONT></TH>
+                <TH><FONT face=Verdana size=1>Example</FONT></TH></TR></THEAD>
+              <TBODY>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Boolean</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>b</FONT></TD>
+                <TD><FONT face=Verdana size=1>bIsValid</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Byte</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>b</FONT></TD>
+                <TD><FONT face=Verdana size=1>bytAge</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Currency</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>cur</FONT></TD>
+                <TD><FONT face=Verdana size=1>curPrice</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Date (and 
+                  Time)</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>dt</FONT></TD>
+                <TD><FONT face=Verdana size=1>dtStart</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Double</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>d</FONT></TD>
+                <TD><FONT face=Verdana size=1>dScale</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Integer</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>i</FONT></TD>
+                <TD><FONT face=Verdana size=1>iCounter</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Long</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>l</FONT></TD>
+                <TD><FONT face=Verdana size=1>lHighCounter</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Single (floating 
+                  point)</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>f</FONT></TD>
+                <TD><FONT face=Verdana size=1>fSize</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>String</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>s</FONT></TD>
+                <TD><FONT face=Verdana size=1>sDepartmentName</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Variant</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>vnt</FONT></TD>
+                <TD><FONT face=Verdana size=1>vntUnknown</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Object</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>o</FONT></TD>
+                <TD><FONT face=Verdana size=1>oCustomer</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana 
+size=1>Collection</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>col</FONT></TD>
+                <TD><FONT face=Verdana size=1>colCustomers</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>User Defined 
+                  Type</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>udt</FONT></TD>
+                <TD><FONT face=Verdana size=1>udtPoint</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Enum</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>enm</FONT></TD>
+                <TD><FONT face=Verdana 
+            size=1>enmGender</FONT></TD></TR></TBODY></TABLE>
+            <P><FONT face=Verdana size=1>Arrays shall have no special prefix, 
+            but shall have a plural name, or a name ending Array, for instance, 
+            sNames or lCustomersArray.</FONT></P>
+            <P><B><FONT face=Verdana size=1>Scope Prefixes:</FONT></B></P>
+            <TABLE width=450 border=1>
+              <THEAD>
+              <TR>
+                <TH><FONT face=Verdana size=1>Scope</FONT></TH>
+                <TH><FONT face=Verdana size=1>Prefix</FONT></TH>
+                <TH><FONT face=Verdana size=1>Example</FONT></TH></TR></THEAD>
+              <TBODY>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Static</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>s_</FONT></TD>
+                <TD><FONT face=Verdana size=1>s_bIsValid</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Module</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>m_</FONT></TD>
+                <TD><FONT face=Verdana size=1>m_bIsValid</FONT></TD></TR>
+              <TR vAlign=top>
+                <TD><NOBR><FONT face=Verdana size=1>Global</FONT></NOBR></TD>
+                <TD><FONT face=Verdana size=1>g_</FONT></TD>
+                <TD><FONT face=Verdana 
+            size=1>g_IsValid</FONT></TD></TR></TBODY></TABLE>
+            <P><FONT face=Verdana size=1>Visual Basic control names will have a 
+            three character Hungarian prefix as set out in the back of the 
+            Visual Basic Programmer's Guide, for example txt is the prefix for a 
+            textbox.</FONT></P>
+            <P><FONT face=Verdana size=1>In addition, variables that point to a 
+            form will be prefixed 'frm', and general purpose variables for 
+            controls will be prefixed 'ctl'.</FONT></P>
+            <H3><FONT face=Verdana size=1>Constant Naming</FONT></H3>
+            <P><FONT face=Verdana size=1>Constants will have names that describe 
+            their use, and they shall be in upper case with underscores 
+            separating each word. There will be no requirement to specify a 
+            Hungarian type prefix, but the same prefixes as variables shall be 
+            used to show module and global scope.</FONT></P>
+            <P><FONT face=Verdana size=1>Enumeration names and member names 
+            shall be prefixed with a the 'fsl' company prefix to set them apart 
+            from Visual Basics own enumerations, for 
+            example:<BR>&nbsp;&nbsp;&nbsp;&nbsp;Public Enum 
+            fslGender<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fslUnknown<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fslMale<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fslFemale<BR>&nbsp;&nbsp;&nbsp;&nbsp;End 
+            Enum</FONT></P>
+            <H3><FONT face=Verdana size=1>Procedure Naming</FONT></H3>
+            <P><FONT face=Verdana size=1>Procedure shall have mixed case 
+            descriptive names where the initial character of each word is in 
+            upper case. The names shall only exceptionally contain 
+            abbreviations, and where abbreviations are used they shall be used 
+            consistently throughout the application.</FONT></P>
+            <H3><FONT face=Verdana size=1>Module Naming</FONT></H3>
+            <P><FONT face=Verdana size=1>Modules, class, form and standard shall 
+            have descriptive names. They shall also have a one character prefix 
+            in upper case; F for forms, M for standard modules, and C for class 
+            modules. This in particular helps distinguish the name of form 
+            modules from variables referencing a form instance.</FONT></P>
+            <P><FONT face=Verdana size=1>Abstract interfaces shall be prefixed 
+            with a single upper case I character.</FONT></P>
+            <H2><A name=variables><FONT face=Verdana size=1>Use of Variables, 
+            Procedures and Constants</FONT></A></H2>
+            <H3><FONT face=Verdana size=1>Variables</FONT></H3>
+            <P><FONT face=Verdana size=1>Variables shall be explicitly declared, 
+            and to this end Option Explicit is to appear at the top of all 
+            modules.</FONT></P>
+            <P><FONT face=Verdana size=1>Object variables are not to be declared 
+            'As New...', rather they will be declared as the type of object and 
+            when an instance is required it will be created with the 'Set ... = 
+            New ...' or by using CreateObject as appropriate.</FONT></P>
+            <P><FONT face=Verdana size=1>The generic form variable that is 
+            automatically created by VB with the same name as the form modules 
+            is not to be used, rather, whenever an instance of a form is 
+            required a specific variable declared as the form type will be 
+            used.</FONT></P>
+            <P><FONT face=Verdana size=1>Variables shall be declared at the 
+            narrowest scope possible. Global scope modules are to be 
+            avoided.</FONT></P>
+            <P><FONT face=Verdana size=1>Local variables shall be declared at 
+            the top of a procedure, not within the body.</FONT></P>
+            <P><FONT face=Verdana size=1>The Variant type shall only be used 
+            when no other more specific type is possible.</FONT></P>
+            <P><FONT face=Verdana size=1>Variables shall have a focused use. 
+            They shall not be declared once and used for several different 
+            purposes.</FONT></P>
+            <P><FONT face=Verdana size=1>String variables shall be concatenated 
+            with the ampersand character (i.e. &amp; not +)</FONT></P>
+            <P><FONT face=Verdana size=1>When naming boolean variables, the 
+            positive rather than the negative form shall be preferred, i.e. 
+            bIsValid rather than bIsNotValid.</FONT></P>
+            <H3><FONT face=Verdana size=1>Procedures</FONT></H3>
+            <P><FONT face=Verdana size=1>Procedures shall have an appropriate 
+            clearly defined scope (Public, Private or Friend) and not rely on 
+            the default setting.</FONT></P>
+            <P><FONT face=Verdana size=1>Procedures shall have as few exit 
+            points as possible; Exit Function/Sub and Property are to be avoided 
+            unless it improves the readability.</FONT></P>
+            <P><FONT face=Verdana size=1>Procedures shall have robust exit code 
+            where object references are explicitly tidied up rather than relying 
+            on Visual Basic to clean up as they go out of scope.</FONT></P>
+            <P><FONT face=Verdana size=1>Parameters shall have a specified data 
+            type.</FONT></P>
+            <P><FONT face=Verdana size=1>Data will be passed to and from 
+            procedures with parameters rather than module or global scope 
+            variables.</FONT></P>
+            <P><FONT face=Verdana size=1>Parameters with a small range of values 
+            shall be declared with an enumeration type.</FONT></P>
+            <P><FONT face=Verdana size=1>Where parameters are not to be changed 
+            they shall be declared ByVal unless there is some performance reason 
+            to declare them ByRef.</FONT></P>
+            <H3><FONT face=Verdana size=1>Constants</FONT></H3>
+            <P><FONT face=Verdana size=1>System constants and enumerations shall 
+            be used wherever possible, for example, vbMinimized.</FONT></P>
+            <P><FONT face=Verdana size=1>Constants shall not be declared in 
+            multiple places, rather they shall be declared at a higher 
+            scope.</FONT></P>
+            <P><FONT face=Verdana size=1>Constants shall always be used in place 
+            of 'magic numbers', the exception to this being the initialisation 
+            of variables to 0 or 1 (i.e. initialising a loop 
+counter).</FONT></P>
+            <P><FONT face=Verdana size=1>Constants shall be used when referring 
+            to elements in a control array, for example, 
+            txtName(FIRST_NAME).Text</FONT></P>
+            <H2><A name=commenting><FONT face=Verdana size=1>Commenting 
+            Code</FONT></A></H2>
+            <P><FONT face=Verdana size=1>Comments shall specify what the purpose 
+            of the code is, it shall not simply repeat the code.</FONT></P>
+            <P><FONT face=Verdana size=1>All deviations from coding standards or 
+            good programming practice shall have a comment specifying the 
+            reasons why.</FONT></P>
+            <P><FONT face=Verdana size=1>Comments shall be indented to the same 
+            level as the code that follows them.</FONT></P>
+            <P><FONT face=Verdana size=1>End-of-line comments shall be avoided, 
+            the exception being in the declaration section if a comment for a 
+            variable declaration is required.</FONT></P>
+            <P><FONT face=Verdana size=1>Comments shall be specified with a 
+            apostrophe not with the antiquated Rem statement.</FONT></P>
+            <P><FONT face=Verdana size=1>Every procedure and module shall have a 
+            boilerplate that descibes it purpose and parameters.</FONT></P>
+            <P><FONT face=Verdana size=1>Solid comment lines (for instance 
+            '********) are not to be used except in module or procedure 
+            boilerplates.</FONT></P>
+            <P><FONT face=Verdana size=1>Document all decision and loop 
+            structures.</FONT></P>
+            <H2><A name=formatting><FONT face=Verdana size=1>Formatting 
+            Code</FONT></A></H2>
+            <P><FONT face=Verdana size=1>The indent tab setting in the Visual 
+            Basic Options shall be left at the default setting of 4 
+            spaces.</FONT></P>
+            <P><FONT face=Verdana size=1>Indenting and white space shall be used 
+            to make the code more readable, like the paragraphs of a 
+            book.</FONT></P>
+            <P><FONT face=Verdana size=1>No more that one statement shall appear 
+            on a single line.</FONT></P>
+            <P><FONT face=Verdana size=1>Use the continuation character to split 
+            long lines to make them more readable. The continuation lines shall 
+            be indented.</FONT></P>
+            <P><FONT face=Verdana size=1>Indent code as follows:</FONT></P>
+            <UL>
+              <LI><FONT face=Verdana size=1>Between an If statement and its End 
+              If, Else or ElseIf.</FONT> 
+              <LI><FONT face=Verdana size=1>Between an Else and its End 
+              If.</FONT> 
+              <LI><FONT face=Verdana size=1>Between an ElseIf and its Else or 
+              End If.</FONT> 
+              <LI><FONT face=Verdana size=1>Between a Select statement and its 
+              End Select statement.</FONT> 
+              <LI><FONT face=Verdana size=1>Between each Case statement in a 
+              Select.</FONT> 
+              <LI><FONT face=Verdana size=1>Between a Do statement and its 
+              Loop.</FONT> 
+              <LI><FONT face=Verdana size=1>Between a With statement and its End 
+              With.</FONT> 
+              <LI><FONT face=Verdana size=1>Between a For statement and its 
+              Next.</FONT> 
+              <LI><FONT face=Verdana size=1>Between an Edit or AddNew method and 
+              its Update or CancelUpdate.</FONT> 
+              <LI><FONT face=Verdana size=1>Between the start and end of a 
+              transaction.</FONT> 
+              <LI><FONT face=Verdana size=1>Within the declaration section to 
+              show subordination, for instance between a Type and its End 
+              Type.</FONT> </LI></UL>
+            <H2><A name=other><FONT face=Verdana size=1>Other Coding 
+            Rules</FONT></A></H2>
+            <P><FONT face=Verdana size=1>Every procedure shall contain error 
+            handling to capture and re-raise or report errors.</FONT></P>
+            <P><FONT face=Verdana size=1>The most specific type of object 
+            variable shall be used in a For Each..Next loop.</FONT></P>
+            <P><FONT face=Verdana size=1>Always include a Case Else in Select 
+            Case structures.</FONT></P>
+            <P><FONT face=Verdana size=1>Split an If statement to use an End If 
+            even where there is only one statement to execute.</FONT></P>
+            <P><FONT face=Verdana size=1>Never compare a boolean for equality 
+            with True or False.</FONT></P>
+            <P><FONT face=Verdana size=1>Use parenthesis to improve readability 
+            even when they are strictly not required.</FONT></P>
+            <P><FONT face=Verdana size=1>Use upper case letters for GoTo 
+            labels.</FONT></P>
+            <P><FONT face=Verdana size=1>Use GoTo only where it improves 
+            readability.</FONT></P>
+            <P><FONT face=Verdana size=1>Do not use GoSub.</FONT></P>
+            <P><FONT face=Verdana size=1>Do not use default properties, rather 
+            specify them explicitly, for example txtName.Text = sName</FONT></P>
+            <P><FONT face=Verdana size=1>The reference counter used in a 
+            For..Next loop shall not be used after the loop has 
+            finished.</FONT></P>
+            <P><FONT face=Verdana size=1>The antiquated While..Wend loop shall 
+            not be used.</FONT></P>
+            <P><FONT face=Verdana size=1>Compile On Demand is not to be used in 
+            the Visual Basic options.</FONT></P>
+            <P><FONT face=Verdana size=1>DoEvents shall be avoided unless 
+            required, specifically, where a control or form is to be refreshed 
+            the Refresh method shall be used in preference to 
+            DoEvents.</FONT></P>
+            <H2><A name=boilerplates><FONT face=Verdana size=1>Sample 
+            Boilerplates</FONT></A></H2>
+            <H3><FONT face=Verdana size=1>Module Boilerplate:</FONT></H3>
+            <P><FONT face="Courier New" color=#008000 
+            size=1><NOBR>'**************************************************</NOBR><BR><NOBR>' 
+            MODULE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FMain</NOBR><BR><NOBR>' 
+            FILENAME:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C:\Project\FMain.frm</NOBR><BR><NOBR>' 
+            AUTHOR:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phil 
+            Fresle</NOBR><BR><NOBR>' 
+            CREATED:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15-Apr-2000</NOBR><BR><NOBR>' 
+            COPYRIGHT:&nbsp;&nbsp;&nbsp;&nbsp;Copyright 2000 Frez Systems 
+            Limited. 
+            </NOBR><BR><NOBR>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            </NOBR></FONT><FONT face="Courier New" color=#008000 
+            size=1><NOBR>All Rights Reserved.</NOBR></FONT><FONT 
+            face="Courier New" color=#008000 size=1><BR><NOBR>' 
+            DESCRIPTION:</NOBR><BR><NOBR>' ***Description goes 
+            here***</NOBR><BR><NOBR>'</NOBR><BR><NOBR>' MODIFICATION 
+            HISTORY:</NOBR><BR><NOBR>' 
+            1.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15-Apr-2000</NOBR><BR><NOBR>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phil 
+            Fresle</NOBR><BR><NOBR>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initial 
+            Version</NOBR><BR><NOBR>'***************************************************</NOBR></FONT></P>
+            <H3><FONT face=Verdana size=1>Procedure Boilerplate:</FONT></H3>
+            <P><FONT color=#008000><NOBR><FONT face="Courier New" 
+            size=1>'***************************************************</FONT></NOBR><FONT 
+            face="Courier New" size=1><BR><NOBR>' GetUserName 
+            (FUNCTION)</NOBR><BR><NOBR>'</NOBR><BR><NOBR>' 
+            PARAMETERS:</NOBR><BR><NOBR>' (In) - lUserID - Long 
+            -</NOBR><BR><NOBR>'</NOBR><BR><NOBR>' RETURN 
+            VALUE:</NOBR><BR><NOBR>' String 
+            -</NOBR><BR><NOBR>'</NOBR><BR><NOBR>' DESCRIPTION:</NOBR><BR><NOBR>' 
+            ***Description goes 
+            here***</NOBR><BR><NOBR>'***************************************************</NOBR> 
+            </FONT></FONT></P>
+            <H2><A name=samplecode><FONT size=1>Sample Code Containing Error 
+            Handling</FONT></A></H2>
+            <P><FONT face="Courier New" size=1><NOBR>Private Const MODULE_NAME 
+            As String = "SomeModule"</NOBR><BR><BR><NOBR>Private Sub 
+            SomeProcedureName()</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; Dim 
+            lErrNumber&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As 
+            Long</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; Dim 
+            sErrSource&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As 
+            String</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; Dim sErrDescription 
+            As String</NOBR><BR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; Const 
+            PROCEDURE_NAME As String = 
+            "SomeProcedureName"</NOBR><BR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; On 
+            Error GoTo 
+            ERROR_HANDLER</NOBR><BR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; <FONT 
+            color=#008000>'**** Procedure's code (that may result in errors) 
+            goes 
+            here</FONT></NOBR><BR><BR><NOBR>TIDY_UP:</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; 
+            On Error Resume Next</NOBR><BR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; 
+            <FONT color=#008000>'**** Place code to tidy up object references 
+            here where we<BR>&nbsp;&nbsp;&nbsp;&nbsp; don't care about 
+            errors</FONT></NOBR><BR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; <FONT 
+            color=#008000>' Re-raise if we found an 
+            error</FONT></NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; If lErrNumber 
+            &lt;&gt; 0 
+            Then</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            On Error GoTo 
+            0</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            Err.Raise lErrNumber, sErrSource, 
+            sErrDescription</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; End 
+            If</NOBR><BR><NOBR>Exit 
+            Sub</NOBR><BR><BR><NOBR>ERROR_HANDLER:</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; 
+            lErrNumber = Err.Number</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; 
+            sErrDescription = 
+            Err.Description</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; sErrSource 
+            = FormatErrorSource(Err.Source, MODULE_NAME, 
+            _<BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+            PROCEDURE_NAME)</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; Resume 
+            TIDY_UP</NOBR><BR><NOBR>End Sub</NOBR><BR><BR><NOBR>Public Function 
+            FormatErrorSource(ByVal sErrSource As String, 
+            _</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; ByVal sModule As String, 
+            ByVal sFunction As String) As 
+            String</NOBR><BR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; Static 
+            s_sDefaultErrorSource As 
+            String</NOBR><BR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; On Error Resume 
+            Next</NOBR><BR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; If 
+            s_sDefaultErrorSource = "" 
+            Then</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            Err.Raise 
+            vbObjectError</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            s_sDefaultErrorSource = 
+            Err.Source</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            Err.Clear</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; End 
+            If</NOBR><BR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; If sErrSource = 
+            s_sDefaultErrorSource 
+            Then</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            FormatErrorSource = App.Title &amp; "." &amp; sModule &amp; "." 
+            &amp; _<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            sFunction</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; 
+            Else</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            FormatErrorSource = sErrSource &amp; vbCrLf 
+            _</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &amp; App.Title &amp; "." &amp; sModule &amp; "." &amp; 
+            sFunction</NOBR><BR><NOBR>&nbsp;&nbsp;&nbsp;&nbsp; End 
+            If</NOBR><BR><NOBR>End Function</NOBR></FONT></P>
+            <H2><A name=reading><FONT face=Verdana size=1>Further 
+            Reading</FONT></A></H2>
+            <P><FONT face=Verdana size=1>Coding Techniques and Programming 
+            Practices, by Rob Caron<BR><A target=_top 
+            href="http://msdn.microsoft.com/library/techart/cfr.htm">http://msdn.microsoft.com/library/techart/cfr.htm</A></FONT></P>
+            <P><FONT face=Verdana size=1>The Basics of Programming Model Design, 
+            by Dave Stearns <A target=_top 
+            href="http://msdn.microsoft.com/library/techart/msdn_basicpmd.htm">http://msdn.microsoft.com/library/techart/msdn_basicpmd.htm</A></FONT></P>
+            <P><FONT face=Verdana size=1>Visual Basic Programming Standards, by 
+            Jim Karabatsos<BR><A target=_top 
+            href="http://www.gui.com.au/jkcoding.htm">http://www.gui.com.au/jkcoding.htm</A></FONT></P>
+            <P><FONT face=Verdana size=1>C++ Coding Standards, by Todd 
+            Hoff<BR><A target=_top 
+            href="http://www.possibility.com/Cpp/CppCodingStandard.html">http://www.possibility.com/Cpp/CppCodingStandard.html</A></FONT></P>
+            <P><FONT face=Verdana size=1>Practical Standards for Microsoft 
+            Visual Basic, by James D. Foxall,<BR>Published by <A target=_top 
+            href="http://mspress.microsoft.com/">MS Press</A>, ISBN 
+            0-7356-0733-8</FONT></P>
+            <P><A target=_top 
+            href="http://msdn.microsoft.com/isapi/msdnlib.idc?theURL=/library/devprods/vs6/vbasic/vbcon98/vbconprogrammersguide.htm"><FONT 
+            face=Verdana size=1>Visual Basic Programmer's 
+        Guide</FONT></A></P></TD></TR>
+        <TR>
+          <TD width="2%"></TD>
+          <TD 
+width="98%"></TD></TR></TBODY></TABLE></FONT></TD></TR></TBODY></TABLE></DIV>
+<META http-equiv=Content-Language content=en-us>
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId>
+<DIV align=left>
+<TABLE cellSpacing=0 width=800 bgColor=#336699 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">&nbsp;</TD></TR></TBODY></TABLE></DIV>
+<TABLE height=10 width=800 border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=middle width="50%">
+      <P align=right><IMG 
+      src="Visual Basic Coding Standards by Phil Fresle.files/dotcom.jpg" 
+      border=0></P></TD>
+    <TD vAlign=center align=middle width="50%">
+      <P align=left><FONT face=Verdana size=-2>Copyright © 2001 All Rights 
+      Reserved</FONT></P></TD></TR></TBODY></TABLE>
+<TABLE height=1 cellSpacing=0 cellPadding=0 width=800 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <P align=center><FONT face=Verdana color=#0000ff size=-2><B><A 
+      href="http://www.ancillasoftware.com/"></A></B></FONT>&nbsp;</P></TD></TR></TBODY></TABLE></FONT></BODY></HTML>

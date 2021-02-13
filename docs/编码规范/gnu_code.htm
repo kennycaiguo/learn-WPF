@@ -1,0 +1,937 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<title>GNU 编码标准</title>
+</head><body bgcolor="white" leftmargin="0" rightmargin="0" topmargin="0">
+<table cellspacing="0" cellpadding="5" width="100%" border="0">
+  <tr bgcolor="#eeeeee">
+    <td valign="top" align="left"><font size="+4" color="#800000">
+    <b>GNU 编码标准</b></font></td>
+  </tr>
+</table>
+<table cellspacing="0" cellpadding="5" width="100%" border="0">
+  <tr bgcolor="#bbddff">
+    <td valign="top" align="left">
+      <table><tr><td>
+      870      </tr><tr><td>
+      最近更新日期：
+      2002/10/08 Tue 10:50:24+0800 CST      </tr></table>
+    </td>
+    <td valign="top" align="right">
+    </td>
+  </tr>
+</table>
+<H1>GNU 编码标准</H1>
+<P>
+<UL>
+  <LI><A href="#SEC1" name=CSEC1>引用私有程序</A>
+  <LI><A href="#SEC2" name=CSEC2>接受他人的奉献</A>
+  <LI><A href="#SEC3" name=CSEC3>修改日志（Change Logs）</A>
+  <LI><A href="#SEC4" name=CSEC4>与其它实现的兼容性</A>
+  <LI><A href="#SEC5" name=CSEC5>Makefile惯例</A>
+  <UL>
+    <LI><A href="#SEC6" name=CSEC6>Makefile的通用惯例</A>
+    <LI><A href="#SEC7" name=CSEC7>Makefile中的工具</A>
+    <LI><A href="#SEC8" name=CSEC8>为用户提供的标准目标</A>
+    <LI><A href="#SEC9" name=CSEC9>为指明命令而提供的变量</A>
+    <LI><A href="#SEC10" name=CSEC10>为安装目录而提供的变量</A> </LI></UL>
+  <LI><A href="#SEC11" name=CSEC11>配置是如何进行的</A>
+  <LI><A href="#SEC12" name=CSEC12>使用C以外的语言</A>
+  <LI><A href="#SEC13" name=CSEC13>格式化你的源代码</A>
+  <LI><A href="#SEC14" name=CSEC14>为你的工作写注释</A>
+  <LI><A href="#SEC15" name=CSEC15>清晰地使用C语言成分</A>
+  <LI><A href="#SEC16" name=CSEC16>命名变量和函数</A>
+  <LI><A href="#SEC17" name=CSEC17>使用非标准的特征</A>
+  <LI><A href="#SEC18" name=CSEC18>适用于所有程序的程序行为</A>
+  <LI><A href="#SEC19" name=CSEC19>格式化错误信息</A>
+  <LI><A href="#SEC20" name=CSEC20>库的行为</A>
+  <LI><A href="#SEC21" name=CSEC21>适用于GNU的移植性</A>
+  <LI><A href="#SEC22" name=CSEC22>命令行界面标准</A>
+  <LI><A href="#SEC23" name=CSEC23>为程序制作文档</A>
+  <LI><A href="#SEC24" name=CSEC24>制作发行包</A> </LI></UL>
+<HR>
+<H1>GNU编码标准</H1>
+<P>GNU编码标准@author{Richard Stallman} @author{last updated 03 Feb 
+1993} 
+<P>Copyright (C) 1992, 1993 Free Software Foundation 
+<P>Permission is granted to make and distribute verbatim copies of this manual 
+provided the copyright notice and this permission notice are preserved on all 
+copies.
+<P>Permission is granted to copy and distribute modified versions of this manual 
+under the conditions for verbatim copying, provided that the entire resulting 
+derived work is distributed under the terms of a permission notice identical to 
+this one.
+<P>Permission is granted to copy and distribute translations of this manual into 
+another language, under the above conditions for modified versions, except that 
+this permission notice may be stated in a translation approved by Free Software 
+Foundation.
+<P>
+<HR>
+<P>本文由王立翻译.  1999.11.9
+<HR>
+<H1><A href="#CSEC1" name=SEC1>引用私有程序</A></H1>
+<P>不要在任何情况下,为你在的GNU中的工作或者在工作中引用Unix的源代码（或者任何其它私有程序）。
+<P>如果你对一个Unix程序内容有一些模糊的记忆，这并不因为着你绝对写程序来模仿它，
+但请试图在内部使用不同的代码行来组织它，因为这将使你工作的结果在细节上与Unix版本有所不同。
+<P>例如，Unix工具通常进行了优化以使用最少的内存；如果你更希望提高速度，你的程序将会有很大的不同。
+你可以在内核中保存整个输入文件并且在内存中扫描而不是使用stdio。使用比Unix程序更新的、
+更明智的算法。不使用暂时文件。在一遍扫描而不是两遍扫描中完成任务（我在assembler（汇编器）中这样做了）。
+<P>或者相反，强调简单性而不是速度。对于一些应用程序来说，今天的计算机只要使用简单的算法就够了。
+<P>或者注重一般性。例如，Unix程序通常使用静态的表格和固定大小的字符串，这导致了不可改变的限制；
+用动态分配来代替。确认你的程序处理了输入文件为空和其它滑稽的情况。为增加扩展性而增加一种
+程序语言并且用那种语言完成程序的一个部分。
+<P>或者把程序的一部分修改成独立的库。或者用一个简单的废物收集器而不是在释放内存的时候精确地进行跟踪，
+或者使用诸如obstacks这样的新的GNU工具。 
+<P>
+<H1><A href="#CSEC2" name=SEC2>接受他人的奉献</A></H1>
+<P>如果其他人发给你一段添加到你正在编写程序中的代码，我们需要准许使用它的法律文书
+--我们将需要从你那里取得同样的法律文书。程序的<EM>每个</EM>重要的贡献者都必须签署
+某种法律文书以使得我们可以给程序一个清晰的标题。仅有主要作者是不够的。
+<P>所以，在把来自于他人的任何共享添加到程序中之前，告诉我们以便我们可以做出安排
+以获取文书。在你实际地使用贡献之前，请等待直到我们告诉你我们已经收到了签署的文书。
+<P>这即适用于你发行程序之前也适用于发行之后。如果你收到了一个修正bug的补丁，并且
+它们做了主要的修改，我们就需要为他提供法律文书。
+<P>你不需要为这里或者那里的少数几行修改提供文书，因为对于达到版权目的没有意义。
+还有，如果你从建议中获得的仅仅是一些想法，而不是你实际上使用的代码，你也不需要文书。
+例如，如果你写了一个程序的不同解决方案，你并不需要获得许可文书。
+<P>我知道这是十分麻烦的；它对我们来说也十分麻烦。但如果你不等待，你就可能误入歧途，
+如果这个贡献者的雇主不肯签署弃权声明怎么办？你可能不得不再次把代码剔除出来！
+<P>最糟糕的情况是如果你忘记告诉我们其它的贡献者，我们可能会因此而窘迫地出现在法庭上。
+<P>
+<H1><A href="#CSEC3" name=SEC3>修改日志（Change Logs）</A></H1>
+<P>为每个目录维护一个修改日志，以记述对这个目录下源文件的修改。这样做的目的是使得
+在将来寻找bug的人可以指导大致是那些修改导致了错误。通常，一个新的bug可以在最近进行
+的修改中被找到。更重要的事，修改日志有助于消除程序的不同部分之间在概念上的不一致性；
+它们可以告诉我们概念冲突产生的历史。
+<P>使用Emacs命令<KBD>M-x add-change</KBD>在修改日之中创建一个新的条目。一个条目应该
+包含一个星号、被修改的文件的名称以及被扩在括号内的、被修改了的函数、变量或者任何东西。
+括号之后是冒号和对你对函数或变量的修改的说明。
+<P>用空行把无关的条目分隔开。如果两个条目反映了同一个修改，因而它们一同工作，那就不要
+在它们之间使用空行。如果后续的条目针对的是相同的文件，那么你可以忽略文件名的星号。
+<P>下面是一些例子：
+<P><PRE>* register.el (insert-register): Return nil.
+(jump-to-register): Likewise.
+
+* sort.el (sort-subr): Return nil.
+
+* tex-mode.el (tex-bibtex-file, tex-file, tex-region):
+Restart the tex shell if process is gone or stopped.
+(tex-shell-running): New function.
+
+* expr.c (store_one_arg): Round size up for move_block_to_reg.
+(expand_call): Round up when emitting USE insns.
+* stmt.c (assign_parms): Round size up for move_block_from_reg.
+</PRE>
+<P>在这里没有必要叙述修改的完整目录和它们是如何协同工作的。把这些说明作为注释放到
+代码中更好一些。这就是说为什么只要给出“New function”就够了；在源代码中，与函数
+放在一起的注释说明了它是做什么的。
+<P>然而，有时为一大堆修改写上一行文字以描述它们的整体目的是有用的。
+<P>在概念上，你可以把修改日志看作解释原始版本与当前版本的不同的“undo列表”。
+人们可以阅读当前的版本；他们不需要修改日志告诉他们其中有什么。他们从修改日之中
+得到的是关于早期版本的不同的清晰解释。
+<P>在你以简单的方式修改函数的调用顺序，并且你修改了所有对函数的调用时，不必为所有
+的调用创建单独的条目。只要在被调用的函数的条目中写“All callers changed.”即可。
+<P>在你仅仅修改了注释或者文档字符串的时候，为该文件写一个条目，而不必提到函数，
+就足够了。只要写"Doc fix."。不必为文档文件维护修改日志。这是因为文档不那么容易
+受到难以修正的错误的影响。文档不是由那些必须以精确地工程方式相互作用的部分组成的；
+要修改一个错误，你不需要知道这个错误传播的历史。
+<P>
+<H1><A href="#CSEC4" name=SEC4>与其它实现的兼容性</A></H1>
+<P>作为一个特例，对于GNU中的工具程序和库，它们应该和Berkeley Unix相应的部分向上兼容，
+如果标准C定义了它们的行为，那它们应该和标准C向上兼容，如果POSIX规范定义了它们的行为，
+那它们也应该与POSIX规范向上兼容。
+<P>当这些标准发生冲突的时候，为每个标准提供兼容模式是有用的。
+<P>标准C和POSIX禁止进行任何形式的扩展。自由地进行你的扩展，并且把选项
+<SAMP>`--ansi'</SAMP>或<SAMP>`--compatible'</SAMP>包括进来以关闭你的扩展。
+但是如果扩展很可能导致任何实际程序或者脚本的崩溃，那么它可能实际上不是向上兼容的。
+尝试一下重新定义它的界面。
+<P>当一个特征仅仅被用户（而不会被程序或者命令文件）所使用的时候，并且在Unix中它完成得
+并不好，请自由地用完全不同并且更好的方式代替它。（例如，用Emacs代替vi。）但同时提供兼容
+模式仍然是很好的。（现在有自由的vi实现，所以我们提供了它。）
+<P>欢迎提供Berkeley Unix没有提供的有用功能。Unix中没有的附加功能可能是有用的，但我们
+优先复制那些Unix已经有的功能。
+<P><A name=IDX1></A><A name=IDX2></A><A name=IDX3></A>
+<H1><A href="#CSEC5" name=SEC5>Makefile惯例</A></H1>
+<P>本章叙述为GNU程序书写Makefile的惯例。
+<P>
+<H2><A href="#CSEC6" name=SEC6>Makefile的通用惯例</A></H2>
+<P>每个Makefile都应该包含这一行：
+<P><PRE>SHELL = /bin/sh
+</PRE>
+<P>以避免那些由从环境中继承<CODE>SHELL</CODE>变量的系统带来的麻烦。
+（GNU <CODE>make</CODE>永远不会出现这个问题。）
+<P>不要假定<TT>`.'</TT>出现在用于寻找可执行的命令的路径中。当你需要在make期间运行作为你的
+包的一部分的程序时，如果程序是作为make的一部分而创建的，请确保它使用了<TT>`./'</TT>，或者
+如果文件是不会被改变的源代码的一部分，请确保它使用了<TT>`$(srcdir)/'</TT>。
+<P>如果运行<TT>`configure'</TT>时使用了选项<SAMP>`--srcdir'</SAMP>，那么<TT>`./'</TT>与
+<TT>`$(srcdir)/'</TT>之间的区别就十分重要。一下形式的规则：
+<P><PRE>foo.1 : foo.man sedscript
+        sed -e sedscript foo.man &gt; foo.1
+</PRE>
+<P>将在当前目录不是源代码目录的情况下导致错误，这是因为<TT>`foo.man'</TT>和<TT>`sedscript'</TT>
+不在当前目录中。
+<P>在使用GNU <CODE>make</CODE>的时候，由于不论源文件在那里，<TT>`make'</TT>的自动变量<SAMP>`$&lt;'</SAMP>
+都将表示它，所以在只存在一个依赖文件的情况下，依靠<SAMP>`VPATH'</SAMP>来寻找源文件仍然是可行的。
+（许多版本的<CODE>make</CODE>只在隐含规则中设置<SAMP>`$&lt;'</SAMP>。）如下的makefile目标：
+<P><PRE>foo.o : bar.c
+        $(CC) -I. -I$(srcdir) $(CFLAGS) -c bar.c -o foo.o
+</PRE>
+<P>将被如下目标所替代：
+<P><PRE>foo.o : bar.c
+        $(CC) $(CFLAGS) $&lt; -o $@
+</PRE>
+<P>以便使<SAMP>`VPATH'</SAMP>能够正确地工作。当目标含有多的依赖文件时，显式地使用<SAMP>`$(srcdir)'</SAMP>
+让规则正常工作的最简单办法。例如，上述为<TT>`foo.1'</TT>而提供的目标最好被写作：
+<P><PRE>foo.1 : foo.man sedscript
+        sed -s $(srcdir)/sedscript $(srcdir)/foo.man &gt; foo.1
+</PRE>
+<P>
+<H2><A href="#CSEC7" name=SEC7>Makefile中的工具</A></H2>
+<P>书写能够在<CODE>sh</CODE>，而不是在<CODE>csh</CODE>，中运行的Makefile命令（以及任何shell脚本，例如
+<CODE>configure</CODE>）。不要使用任何<CODE>ksh</CODE>或者<CODE>bash</CODE>特殊的功能。
+<P>为创建和安装而提供的<CODE>configure</CODE>脚本和Makefile规则不要直接使用任何工具，除了以下的几个之外：
+<P><PRE>cat cmp cp echo egrep expr grep
+ln mkdir mv pwd rm rmdir sed test touch
+</PRE>
+<P>坚持使用这些程序通常支持的选项。例如，因为许多系统不支持<SAMP>`mkdir -p'</SAMP>，尽管它可能有些方便，
+但不要使用它。
+<P>为创建和安装而提供的Makefile规则还可以使用编译器和相关的程序，但应该通过<CODE>make</CODE>变量以便
+用户对它们进行替换。下面是一些我们所说的相关的程序：
+<P><PRE>ar bison cc flex install ld lex
+make makeinfo ranlib texi2dvi yacc
+</PRE>
+<P>在你使用<CODE>ranlib</CODE>的时候，你应该测试它是否存在，并且仅仅在它存在的情况下运行它，以使得发布
+版本在那些没有<CODE>ranlib</CODE>的系统中也能够工作。
+<P>如果你使用了符号连接，你应该为没有符号连接的系统实现一个替代手段。
+<P>你可以在只打算用于特定系统的Makefile的部分（或者脚本）中使用你能够确认在那些系统上存在的工具。
+<P>
+<H2><A href="#CSEC8" name=SEC8>为用户提供的标准目标</A></H2>
+<P>所有的GNU程序应该在它们的Makefile中含有下列目标：
+<P>
+<DL compact>
+  <DT><SAMP>`all'</SAMP> 
+  <DD>编译整个程序。它应该是缺省目标。这个目标不需要重新创建任何文档文件；Info文件被包含在发布版本中，
+同时，只有在用户明确地要求创建DVI文件的时候才创建DVI文件。
+  <P></P>
+  <DT><SAMP>`install'</SAMP> 
+  <DD>编译程序并且把可执行文件、库文件等文件复制到它们在实际应用中应该存在的位置。如果存在一个可以
+检测程序是否被正确地安装了的简单测试，本目标将首先运行这个测试。
+  <P>如果文件的安装目录不存在，该命令将创建这样的目录。它们包括由变量<CODE>prefix</CODE>和
+<CODE>exec_prefix</CODE>的值指明的目录，以及需要的所有目录。完成该任务的一种方式是按照后面所说明的
+方式通过目标<CODE>installdirs</CODE>来完成。
+  <P>在任何用户安装man手册的命令之前使用<SAMP>`-'</SAMP>，以使得<CODE>make</CODE>忽略所有的错误。
+错误将在那些没有安装Unix man手册文档系统的系统中出现。
+  <P>安装Info文件的方式是用<CODE>$(INSTALL_DATA)</CODE>把它们复制到<TT>`$(infodir)'</TT>中。
+（参见<A href="#SEC9">为指明命令而提供的变量</A>），并且如果有程序<CODE>install-info</CODE>存在，
+那么就运行它。<CODE>install-info</CODE>是一个脚本，它编辑Info <TT>`dir'</TT>文件以把给定的Info文件添加
+或者更新目录项的脚本；它将是Texinfo包的一个部分。下面是用于安装一个Info文件一个简单规则：
+  <P><PRE>$(infodir)/foo.info: foo.info
+# There may be a newer info file in . than in srcdir.
+        -if test -f foo.info; then d=.; \
+         else d=$(srcdir); fi; \
+        $(INSTALL_DATA) $$d/foo.info $@; \
+# Run install-info only if it exists.
+# Use `if' instead of just prepending `-' to the
+# line so we notice real errors from install-info.
+# We use `$(SHELL) -c' because some shells do not
+# fail gracefully when there is an unknown command.
+        if $(SHELL) -c 'install-info --version' \
+           &gt;/dev/null 2&gt;&amp;1; then \
+          install-info --infodir=$(infodir) $$d/foo.info; \
+        else true; fi
+</PRE>
+  <P></P>
+  <DT><SAMP>`uninstall'</SAMP> 
+  <DD>删除所有由<SAMP>`install'</SAMP>目标创建的所有安装的文件（但不包括那些由诸如<SAMP>`make all'</SAMP>
+之类的目标创建的，没有被安装的文件）。
+  <P></P>
+  <DT><SAMP>`clean'</SAMP> 
+  <DD>
+  <P>从当前目录中删除所有在创建程序过程中创建的文件。不要删除那些纪录配置情况的文件。有些文件可能是在创建
+过程中创建的，但因为它们是和发布版本一起发布的，通常不是在创建过程中创建的，这样的文件也需要保留下来。
+  <P>如果<TT>`.dvi'</TT>文件不是发布版本的一部分，就删除它们。
+
+  <P></P>
+  <DT><SAMP>`distclean'</SAMP> 
+  <DD>从当前目录中删除所有在程序的配置和创建过程中创建的文件。如果你解包源代码并且在没有添加任何其它文件的
+情况下创建程序，<SAMP>`make distclean'</SAMP>将仅仅保留那些出现在发布版本中的文件。
+  <P></P>
+  <DT><SAMP>`mostlyclean'</SAMP> 
+  <DD>类似于<SAMP>`clean'</SAMP>，可能不会删除少数人们通常不希望重新编译的文件。例如，GCC的
+<SAMP>`mostlyclean'</SAMP>目标不会删除<TT>`libgcc.a'</TT>，这是因为很少需要重新编译并且重新编译将花费大量的时间。
+  <P></P>
+  <DT><SAMP>`realclean'</SAMP> 
+  <DD>从当前目录中删除所有可以由Makefile重新创建的文件。这通常包括所有由<CODE>distclean</CODE>删除的文件，
+以及：由Bison生成的C源文件、标记表（tags tables）、Info文件等等。
+  <P>然而有一个例外：即使<TT>`configure'</TT>可以通过使用Makefile中的规则重新创建，<SAMP>`make realclean'</SAMP>
+也不会删除<TT>`configure'</TT>。更一般地说，<SAMP>`make realclean'</SAMP>将不会删除为了运行<TT>`configure'</TT>
+而存在的任何东西，并且随后开始创建程序。
+  <P></P>
+  <DT><SAMP>`TAGS'</SAMP> 
+  <DD>为本程序更新标记表（tags table）。
+  <P></P>
+  <DT><SAMP>`info'</SAMP> 
+  <DD>生成所有需要的Info文件。书写该规则的最佳方式是：
+  <P><PRE>info: foo.info
+
+foo.info: foo.texi chap1.texi chap2.texi
+        $(MAKEINFO) $(srcdir)/foo.texi
+</PRE>
+  <P>你必须在Makefile中定义变量<CODE>MAKEINFO</CODE>。它应该运行程序<CODE>makeinfo</CODE>，该程序是Texinfo发布
+版本的一部分。
+  <P></P>
+  <DT><SAMP>`dvi'</SAMP> 
+  <DD>Generate DVI files for all TeXinfo documentation. For example: 
+  <P><PRE>dvi: foo.dvi
+
+foo.dvi: foo.texi chap1.texi chap2.texi
+        $(TEXI2DVI) $(srcdir)/foo.texi
+</PRE>
+  <P>你必须在Makefile中定义变量<CODE>TEXI2DVI</CODE>。它应该运行程序<CODE>texi2dvi</CODE>，该程序也是Texinfo
+发布版本的一部分。作为另一个选择，只要写依赖文件并且允许GNU Make提供这个命令就行了。
+  <P></P>
+  <DT><SAMP>`dist'</SAMP> 
+  <DD>为本程序创建一个发布版本tar文件。该tar文件将被设置以使得在tar文件中的文件名以子目录名开头，这个子目录名
+是包用于发布的名字。这个名字可以包含版本号。
+  <P>例如，GCC版本1.40的发布tar文件将被解包到名为<TT>`gcc-1.40'</TT>的子目录中。
+  <P>完成该任务的最简单方式是以适当的名称创建一个子目录，使用<CODE>ln</CODE>或者<CODE>cp</CODE>把正确的文件
+安装到该目录中，而后<CODE>tar</CODE>这个子目录。
+  <P>目标<CODE>dist</CODE>应该显式地依赖于发布版本中所有的非源文件，以确保它们在发布版本中都不是过时的。参见
+<A href="#SEC24">制作发布包</A>
+  <P></P>
+  <DT><SAMP>`check'</SAMP> 
+  <DD>（如果有的话）执行自检测。用户必须在运行测试之前，但不必在安装程序之前创建程序；你应该写下自检测以便
+它们在程序创建之后而没有被安装之前进行工作。
+</DD></DL>
+<P>对于那些适用于以下的目标的程序，建议你按照常用的名字提供它们。
+<P>
+<DL compact>
+  <DT><CODE>installcheck</CODE> 
+  <DD>（如果有的话）执行安装监测。用户必须在运行该检测之前创建并且安装程序。你不应该假定<TT>`$(bindir)'</TT>
+出现在搜索路径中。
+  <P></P>
+  <DT><CODE>installdirs</CODE> 
+  <DD>添加一个名为<SAMP>`installdirs'</SAMP>的目标，以便创建安装文件的目录和它们的父目录。
+有一个称为<TT>`mkinstalldirs'</TT>的脚本可以为此提供便利；在Texinfo包中可以找到它。你可以使用象下面那样的规则：
+  <P><PRE># Make sure all installation directories (e.g. $(bindir))
+# actually exist by making them if necessary.
+installdirs: mkinstalldirs
+        $(srcdir)/mkinstalldirs $(bindir) $(datadir) \
+                                $(libdir) $(infodir) \
+                                $(mandir)
+</PRE></DD></DL>
+<P>
+<H2><A href="#CSEC9" name=SEC9>为指明命令而提供的变量</A></H2>
+<P>Makefile应该提供变量以覆盖某些命令、选项等等。
+<P>特别地，你应该通过变量来运行大部分工具程序。因此，如果你使用了Bison，就定义一个缺省值是通过<SAMP>`BISON = bison'</SAMP>
+来设定的变量<CODE>BISON</CODE>，并且在你需要使用Bison的所有地方通过<CODE>$(BISON)</CODE>引用它。
+<P>在这种方式下，文件管理工具：<CODE>ln</CODE>、<CODE>rm</CODE>、<CODE>mv</CODE>等等并不需要通过变量引用，这是因为
+用户不需要用其它程序来替代它们。
+<P>每个程序名变量都应该有一个对应的变量以便为程序提供选项。把<SAMP>`FLAGS'</SAMP>附加到程序名变量名的后面就是
+选项变量名--例如，<CODE>BISONFLAGS</CODE>。（名字<CODE>CFLAGS</CODE>是这项规则的一个例外，但因为它是标准的而保留了它。）
+在任何运行预处理器的编译命令中使用<CODE>CPPFLAGS</CODE>，在任何进行连接的编译命令和任何对<CODE>ld</CODE>的直接使用中
+使用<CODE>LDFLAGS</CODE>。
+<P>如果存在一些为了正确地编译某些文件而<EM>必须</EM>使用的C编译器选项，不要把它们包括在<CODE>CFLAGS</CODE>中。用户希望
+能够自由地指明<CODE>CFLAGS</CODE>的值。替代的方式是：通过在编译命令行中显式地给出这些必要的选项或者通过定义一条隐含
+规则，从而以独立于<CODE>CFLAGS</CODE>的方式把选项传递给C编译器。
+<P><PRE>CFLAGS = -g
+ALL_CFLAGS = -I. $(CFLAGS)
+.c.o:
+        $(CC) -c $(CPPFLAGS) $(ALL_CFLAGS) $&lt;
+</PRE>
+<P>把选项<SAMP>`-g'</SAMP>包括在<CODE>CFLAGS</CODE>中，因为它对于正确的编译来说并不是<EM>必要</EM>的。
+你可以认为它仅仅是关于缺省值的一个建议。如果包被设置成在缺省的状态下由GCC编译，那么你可能还需要把<SAMP>`-O'</SAMP>
+包括在<CODE>CFLAGS</CODE>的缺省值之中。
+<P>把<CODE>CFLAGS</CODE>放在编译命令行的最后，就是在其它包含了编译选项的变量之后，以便于用户使用<CODE>CFLAGS</CODE>
+来覆盖其它的选项。
+<P>每个Makefile都应该定义变量<CODE>INSTALL</CODE>，它是把一个文件安装到系统中的基本命令。
+<P>每个Makefile还应该定义变量<CODE>INSTALL_PROGRAM</CODE>和<CODE>INSTALL_DATA</CODE>。（两者的缺省值都应该是
+<CODE>$(INSTALL)</CODE>。）而后，Makefile应该使用这些变量作为实际安装的命令，分别用于安装可执行文件和不可执行的文件。
+按照下面的方式使用这些变量：
+<P><PRE>$(INSTALL_PROGRAM) foo $(bindir)/foo
+$(INSTALL_DATA) libfoo.a $(libdir)/libfoo.a
+</PRE>
+<P>总是把文件名，而不是目录名，作为安装命令的第二个参数。为每个需要安装的文件使用独立的命令。
+<P>
+<H2><A href="#CSEC10" name=SEC10>为安装目录而提供的变量</A></H2>
+<P>安装目录总是应该通过变量来命名，以易于把包安装在其它非标准的位置。这些变量的标准名字是：
+<P>
+<DL compact>
+  <DT><SAMP>`prefix'</SAMP> 
+  <DD>用于构造下列变量的缺省值的前缀。<CODE>prefix</CODE>的缺省值应该是<TT>`/usr/local'</TT>（至少现在是它）。
+  <P></P>
+  <DT><SAMP>`exec_prefix'</SAMP> 
+  <DD>用于构造下列某些变量的缺省值的前缀。<CODE>exec_prefix</CODE>的缺省值应该是<CODE>$(prefix)</CODE>。
+  <P>一般来说，<CODE>$(exec_prefix)</CODE>指的是用于储存与机器有关的文件（比如说可执行文件和子程序库）的目录，
+而<CODE>$(prefix)</CODE>则被直接用于其它目录。
+  <P></P>
+  <DT><SAMP>`bindir'</SAMP> 
+  <DD>用于储存用户可以运行的可执行程序的目录。一般来说应该是<TT>`/usr/local/bin'</TT>，但应该被写作
+<TT>`$(exec_prefix)/bin'</TT>。
+  <P></P>
+  <DT><SAMP>`libdir'</SAMP> 
+  <DD>用于安装由程序运行，而不是由用户运行的可执行文件的目录。Object文件和object代码库也应该被储存在这个目录。
+提供该目录的意图是为了储存适用于特殊机器结构，但又不必出现在命令路径中的文件。<CODE>libdir</CODE>的值通常是
+<TT>`/usr/local/lib'</TT>，但应该被写作<TT>`$(exec_prefix)/lib'</TT>。
+  <P></P>
+  <DT><SAMP>`datadir'</SAMP> 
+  <DD>用于安装程序在运行时需要访问的只读数据文件的目录。该目录用于储存与使用的机器独立的文件。它通常是
+<TT>`/usr/local/lib'</TT>，但应该被写作<TT>`$(prefix)/lib'</TT>。
+  <P></P>
+  <DT><SAMP>`statedir'</SAMP> 
+  <DD>用于安装程序在运行时需要修改的数据文件的目录。这些文件应该与使用的机器类型独立，并且应该可以在网络
+安装的情况下载不同的机器之间共享。它通常应该是<TT>`/usr/local/lib'</TT>，但应该被写作<TT>`$(prefix)/lib'</TT>。
+  <P></P>
+  <DT><SAMP>`includedir'</SAMP> 
+  <DD>用于储存将被用户程序以C预处理指令<SAMP>`#include'</SAMP>引入的头文件的目录。它通常应该是
+<TT>`/usr/local/include'</TT>，但应该被写作<TT>`$(prefix)/include'</TT>。
+  <P>除了GCC以外，大部分编译器并不在<TT>`/usr/local/include'</TT>中寻找头文件。所以以这种方式安装头文件仅仅
+适用于GCC。但有些库被设计成与其它编译器共同工作。它们应该在两个地方安装它们的头文件，一个由<CODE>includedir</CODE>
+给出，另一个由<CODE>oldincludedir</CODE>给出。
+  <P></P>
+  <DT><SAMP>`oldincludedir'</SAMP> 
+  <DD>为除了GCC之外的其它编译器安装头文件的目录。这通常应该是<TT>`/usr/include'</TT>。
+  <P>Makefile命令应该检测<CODE>oldincludedir</CODE>的值是否为空。如果为空，Makefile命令就不应该试图使用
+<CODE>oldincludedir</CODE>；Makefile命令应该放弃对头文件的第二个安装。
+  <P>除非头文件来自于同一个包，包不应该替换已经存在的头文件。因此，如果你的Foo包提供了一个头文件<TT>`foo.h'</TT>，
+并且如果它没有出现在<CODE>oldincludedir</CODE>目录中或者<CODE>oldincludedir</CODE>目录中的<TT>`foo.h'</TT>也是来自
+与Foo包，那么Foo包就应该把头文件安装到<CODE>oldincludedir</CODE>中。
+  <P>为了判定<TT>`foo.h'</TT>是否来自于Foo包，可把一个特殊的字符串作为注释的一部分放在文件中，而后用grep搜索这个
+字符串。
+  <P></P>
+  <DT><SAMP>`mandir'</SAMP> 
+  <DD>（如果存在）本包安装man手册的目录。它应该包含对应于正确的手册部分的后缀--
+对于一个工具来说通常是<SAMP>`1'</SAMP>。它一般是<TT>`/usr/local/man/man1'</TT>，但你
+应该把它写成：<TT>`$(prefix)/man/man1'</TT>。
+  <P></P>
+  <DT><SAMP>`man1dir'</SAMP> 
+  <DD>安装man手册第一部分的目录。
+  <DT><SAMP>`man2dir'</SAMP> 
+  <DD>安装man手册第二部分的目录。
+  <DT><SAMP>`...'</SAMP> 
+  <DD>如果包需要把man手册安装到手册系统的多个部分，就用这些名字来代替<SAMP>`mandir'</SAMP>。
+  <P><STRONG>不要把man手册作为GNU软件的主要文档。用Texinfo书写文档来代替它。Man手册只是因为
+人们在Unix，它只是一个次要的应用程序，上运行GNU软件才存在的。</STRONG> 
+  <P></P>
+  <DT><SAMP>`manext'</SAMP> 
+  <DD>作为需要安装的man手册的文件的扩展名。它应该是一个点加上一个适当的数字；通常它应该是：<SAMP>`.1'</SAMP>。
+  <P></P>
+  <DT><SAMP>`man1ext'</SAMP> 
+  <DD>将被安装到man手册第一部分的文件的扩展名。
+  <DT><SAMP>`man2ext'</SAMP> 
+  <DD>将被安装到man手册第二部分的文件的扩展名。
+  <DT><SAMP>`...'</SAMP> 
+  <DD>如果包需要把man手册安装到手册系统的多个部分，就用这些名字代替<SAMP>`manext'</SAMP>。
+  <P></P>
+  <DT><SAMP>`infodir'</SAMP> 
+  <DD>为本包安装Info文件的目录。在缺省状态下，它应该是<TT>`/usr/local/info'</TT>，当它应该被写成
+<TT>`$(prefix)/info'</TT>。
+  <P></P>
+  <DT><SAMP>`srcdir'</SAMP> 
+  <DD>用于编译源代码的目录。该变量的值通常是由<CODE>configure</CODE>shell脚本插入的。
+</DD></DL>
+<P>例如：
+<P><PRE># Common prefix for installation directories.
+# NOTE: This directory must exist when you start the install.
+prefix = /usr/local
+exec_prefix = $(prefix)
+# Where to put the executable for the command `gcc'.
+bindir = $(exec_prefix)/bin
+# Where to put the directories used by the compiler.
+libdir = $(exec_prefix)/lib
+# Where to put the Info files.
+infodir = $(prefix)/info
+</PRE>
+<P>如果你的程序在一个标准的用户给定的目录中安装了大量的文件，可能把为程序特别提供的文件存放到
+子目录中会有用一些。如果你这样做了，你应该改写<CODE>install</CODE>规则以创建这些子目录。
+<P>不要指望用户会把子目录名包括在上面列出的变量的值中。为安装目录提供统一的变量名集合的意图是
+使得用户可以为一些不同的GNU包指明完全相同的值。为了使这些规定变得有用，所有的包都必须这样设计
+以便在用户这样做的时候它们将能够有效地工作。
+<P>
+<H1><A href="#CSEC11" name=SEC11>配置是如何进行的</A></H1>
+<P>每个GNU发布版本都应该还有一个名为<CODE>configure</CODE>的shell脚本。你需要把
+你希望在那种机器和系统上编译程序作为参数告诉这个脚本。
+<P>脚本<CODE>configure</CODE>必须记录配置信息以便它们可以影响编译工作。
+<P>这样做的一种方式是把一个诸如<TT>`config.h'</TT>的标准名字和为选定的系统匹配的
+正确配置文件连接起来。如果你使用了这种技术，发布版本中就<EM>不</EM>应该包含名为
+<TT>`config.h'</TT>的文件。这样做是为了保证用户在配置程序之前不能够创建它。
+<P><CODE>configure</CODE>可以做的另一件事情是编辑Makefile。如果你这样做了，发布
+版本中就不能包含名为<TT>`Makefile'</TT>的文件。用<TT>`Makefile.in'</TT>来代替
+它，并且<TT>`Makefile.in'</TT>为<CODE>configure</CODE>的编辑提供了输入。同样，
+这样做是为了保证用户在配置程序之前不能创建它。
+<P>如果<CODE>configure</CODE>生成了<TT>`Makefile'</TT>，那么<TT>`Makefile'</TT>
+就应该包含一个名为<TT>`Makefile'</TT>的目标，这个目标将重新运行<CODE>configure</CODE>
+以与获取上一次配置相同的配置信息。由<CODE>configure</CODE>读取的文件，应该作为
+依赖性文件而在<TT>`Makefile'</TT>中被列出。
+<P>所有由<CODE>configure</CODE>脚本生成的文件在它们的第一行都应该包含一条注释
+以说明它们是由<CODE>configure</CODE>自动生成的。这样做是为了确保用户不会试图手工
+修改它们。
+<P>脚本<CODE>configure</CODE>应该写入一个名为<TT>`config.status'</TT>的文件，该文件
+说明了在程序的最后一次配置中给出了那些配置选项。该文件应该是一个shell脚本，如果运行它，
+将重新生成相同的配置。
+<P>脚本<CODE>configure</CODE>应该接受形式为<SAMP>`--srcdir=<VAR>dirname</VAR>'</SAMP>
+的选项以指明在那个目录中可以找到源代码（如果源代码不在当前目录中）。这使得可以在
+实际代码目录没有被修改的情况下，在分离的中创建程序成为可能。
+<P>如果用户没有给出<SAMP>`--srcdir'</SAMP>，那么<CODE>configure</CODE>将在<TT>`.'</TT>
+和<TT>`..'</TT>中寻找源文件。如果它在上述地方之一发现源文件，它就应该在那里使用它们。
+否则，它应该报告它没有找到源文件，并且以非零状态退出。
+<P>通常，支持<SAMP>`--srcdir'</SAMP>的简单方式是通过编辑被放到Makefile中的一个
+<CODE>VPATH</CODE>的定义。可能有一些规则需要被显式地引用以指明源代码目录。为了达到这个
+目的，<CODE>configure</CODE>可以把一个名为<CODE>srcdir</CODE>的变量添加到Makefile中，
+该变量的值就是给定的目录。
+<P>脚本<CODE>configure</CODE>还应该提供一个可以指明程序是究竟为那种系统而创建的选项。
+这个选项看起来应该象：
+<P><PRE><VAR>cpu</VAR>-<VAR>company</VAR>-<VAR>system</VAR>
+</PRE>
+<P>例如，一个Sun 3可能是<SAMP>`m68k-sun-sunos4.1'</SAMP>。
+<P>脚本<CODE>configure</CODE>需要能够解释所有对机器的似是而非的描述方式。因此，
+<SAMP>`sun3-sunos4.1'</SAMP>应该是有效的别名。<SAMP>`sun3-bsd4.2'</SAMP>也是如此，
+因为SunOS是基于BSD的并且没有其它的BSD系统被用于Sun。对于许多程序来说，
+因为Ultrix和BSD之间的区别很少被注意到，所以<SAMP>`vax-dec-ultrix'</SAMP>将是
+<SAMP>`vax-dec-bsd'</SAMP>的一个别名。但少数程序可能需要区分它们。
+<P>这里有一个被称为<TT>`config.sub'</TT>的shell脚本，你可以把它作为一个子程序使用
+以检查系统类型并且对别名进行规范化。
+<P>允许出现其它选项以指明关于机器的软件或者硬件的更多细节：
+<P>
+<DL compact>
+  <DT><SAMP>`--with-<VAR>package</VAR>'</SAMP> 
+  <DD>包<VAR>package</VAR>将被安装，所以把本包配置成与<VAR>package</VAR>一同工作。
+  <P><VAR>package</VAR>可能的取值包括<SAMP>`x'</SAMP>、<SAMP>`gnu-as'</SAMP>（或者
+<SAMP>`gas'</SAMP>）、<SAMP>`gnu-ld'</SAMP>、<SAMP>`gnu-libc'</SAMP>和<SAMP>`gdb'</SAMP>。
+  <P></P>
+  <DT><SAMP>`--nfp'</SAMP> 
+  <DD>目标机器没有浮点数处理器。
+  <P></P>
+  <DT><SAMP>`--gas'</SAMP> 
+  <DD>目标机器的汇编器是GAS，GNU的汇编器。该选项已经过时了；用<SAMP>`--with-gnu-as'</SAMP>来代替。
+  <P></P>
+  <DT><SAMP>`--x'</SAMP> 
+  <DD>目标机器已经安装了X Window系统。该选项已经过时了；用<SAMP>`--with-x'</SAMP> instead来代替。
+</DD></DL>
+<P>所有的<CODE>configure</CODE>脚本都应该接受所有这些“细节”选项，而不论它们是否会对手头的特定
+包产生影响。特别地，它们应该接受任何以<SAMP>`--with-'</SAMP>开头的选项。这样做是因为这使得用户
+可以用同一组选项配置整个GNU源代码树。
+<P>作为编译的一部分的包可能支持交叉编译（cross-compliation）。在这种情况下，程序的主机和目标机器
+可能是不同的。<CODE>configure</CODE>通常把指明的系统类型当作主机和目标机器，因此将创建与运行它
+的机器类型相同的机器上运行的程序。
+<P>创建交叉编译器（cross-compiler）、交叉汇编器（cross-assembler）、或者你自己的程序，通过在运行
+<CODE>configure</CODE>时给出选项<SAMP>`--host=<VAR>hosttype</VAR>'</SAMP>来完成。它在不影响
+目标机器的情况下指明了主机名。<VAR>hosttype</VAR>的语法与前面所说的一样。
+<P>因为为互操作（cross-operation）配置整个操作系统是一件没有意义的事，对互操作来说没有意义的程序
+就不必接受选项<SAMP>`--host'</SAMP>。
+<P>有些程序自动地配置它们自己。如果你的程序被设置成这样，你的<CODE>configure</CODE>脚本只需要简单地
+忽略它的大部分参数就行了。
+<P>
+<H1><A href="#CSEC12" name=SEC12>使用C以外的语言</A></H1>
+<P>使用C以外的语言就好像使用非标准特征：它将为用户带来麻烦。即使GCC能够支持其它语言，
+用户也可能因为不得不安装其它语言的编译器以创建你的程序而感到不便。所以请使用C语言。
+<P>这条规则有三个例外：
+<P>
+<UL>
+  <LI>如果有些程序包括了特殊语言的解释器，那么就可以使用这种语言。
+  <P>因此，GNU Emacs包含用Emacs Lisp写的代码就没有问题，因为GNU Emacs包含了Lisp解释器。
+  <P></P>
+  <LI>如果一个工具就是为了某种语言而编写的，那么就可以使用那种语言。
+  <P>这是因为那些需要创建这个工具的人必然是那些已经安装了其它语言的人。
+  <P></P>
+  <LI>如果一个应用程序没有被极端广泛地关注，那么应用程序的安装不太方面就不是特别重要。
+  </LI></UL>
+<P>
+<H1><A href="#CSEC13" name=SEC13>格式化你的源代码</A></H1>
+<P>把作为C函数的开头的左花括号放到第零列是十分重要的，并且避免把任何其它的左花括号、左括号
+或者左方括号放到第零列。有些工具通过寻找在第零列的左花括号来寻找C函数的起点。这些工具将不能
+处理那些不按照这种方式排版的代码。
+<P>对于函数定义来说，把函数名的起始字符放到第零列也同样重要。这帮助任何寻找函数定义，并且
+可能有助于帮助某些工具识别它们。因此，正确的格式应该是：
+
+<P><PRE>static char *
+concat (s1, s2)        /* Name starts in column zero here */
+     char *s1, *s2;
+{                     /* Open brace in column zero here */
+  ...
+}
+</PRE>
+<P>或者，如果你希望使用标准C，定义的格式是：
+<P><PRE>static char *
+concat (char *s1, char *s2)
+{
+  ...
+}
+</PRE>
+<P>在标准C中，如果参数不能够被美观地放在一行中，按照下面的方式把它们分开：
+
+<P><PRE>int
+lots_of_args (int an_integer, long a_long, short a_short,
+              double a_double, float a_float)
+...
+</PRE>
+<P>对于函数体，我们希望它按照如下方式排版：
+<P><PRE>if (x &lt; foo (y, z))
+  haha = bar[4] + 5;
+else
+  {
+    while (z)
+      {
+        haha += foo (z, z);
+        z--;
+      }
+    return ++x + bar ();
+  }
+</PRE>
+<P>我们发现如果在左括号之前以及逗号之后添加空格将使程序更加容易阅读。尤其是在
+逗号之后添加空格。
+<P>当我们把一个表达式分成多行的时候，在操作符之前而不是之后分割。下面是正确的方式：
+<P><PRE>if (foo_this_is_long &amp;&amp; bar &gt; win (x, y, z)
+    &amp;&amp; remaining_condition)
+</PRE>
+<P>尽力避免让两个不同优先级的操作符出现在相同的对齐方式中。例如，不要象下面那样写：
+<P><PRE>mode = (inmode[j] == VOIDmode
+        || GET_MODE_SIZE (outmode[j]) &gt; GET_MODE_SIZE (inmode[j])
+        ? outmode[j] : inmode[j]);
+</PRE>
+<P>应该附加额外的括号以使得文本缩进可以表示出这种嵌套：
+<P><PRE>mode = ((inmode[j] == VOIDmode
+         || (GET_MODE_SIZE (outmode[j]) &gt; GET_MODE_SIZE (inmode[j])))
+        ? outmode[j] : inmode[j]);
+</PRE>
+<P>插入额外的括号以使得Emacs可以正确地对齐它们。例如，如果你手工完成缩进工作，
+那么它们看起来不错，但Emacs将把它们混在一起：
+<P><PRE>v = rup-&gt;ru_utime.tv_sec*1000 + rup-&gt;ru_utime.tv_usec/1000
+    + rup-&gt;ru_stime.tv_sec*1000 + rup-&gt;ru_stime.tv_usec/1000;
+</PRE>
+<P>但添加一组括号解决了这个问题：
+<P><PRE>v = (rup-&gt;ru_utime.tv_sec*1000 + rup-&gt;ru_utime.tv_usec/1000
+     + rup-&gt;ru_stime.tv_sec*1000 + rup-&gt;ru_stime.tv_usec/1000);
+</PRE>
+<P>按照如下方式排版do-while语句：
+<P><PRE>do
+  {
+    a = foo (a);
+  }
+while (a &gt; 0);
+</PRE>
+<P>请按照逻辑关系（而不是在函数中）使用走纸字符（control-L）以把程序划分成页。
+页有多长并不重要，因为它们不必被放在一个打印的页中。走纸字符应该单独地出现在一行中。
+<P>
+<H1><A href="#CSEC14" name=SEC14>为你的工作写注释</A></H1>
+<P>每个程序都应该以一段简短地、说明其功能的注释开头。
+例如：<SAMP>`fmt - filter for simple filling of text'</SAMP>. 
+<P>请为每个函数书写注释以说明函数做了些什么，需要哪些种类的参数，参数可能值的含义
+以及用途。如果按照常见的方式使用C语言类型，就没有必要逐字重写C参数声明的含义。如果
+它使用了任何非标准的东西（例如，一个类型为<CODE>char *</CODE>的参数实际上给出了
+一个字符串的第二个字符，而不是第一个字符，的地址），或者是可能导致函数不能工作的
+任何可能的值（例如，不能保证正确处理一个包含了新行的字符串），请确认对它们进行了说明。
+<P>如果存在重要的返回值，也需要对其进行解释。
+<P>请在你的注释之后添加两个空格，以便Emacs句子命名进行处理。还有，请书写完整的句子
+并且使头一个单词以大写字母开头。如果小写字母组成的标识符出现在句子的开头，不要把它
+变成大写的！修改拼写就构成了不同的标识符。如果你不希望句子以小写字母开头，可以写下
+不同的句子（例如，“The identifier lower-case is ...”）。
+<P>如果你使用参数名来说明参数值，关于函数的注释就会更清晰。变量名本身应该是小写的，
+但在你说到它的值而不是变量本身的时候就使用大写字母。因此，“the inode number <VAR>node_num</VAR>”
+比“an inode”要好。
+<P>通常在函数之前的注释中没有必要重新提到函数的名字，因为读者可以自己看到它。
+一种可能的例外是：注释太长了，以至于函数本身被挤出了屏幕底端之外。
+<P>对于每个静态变量，也象下面那样应该提供注释：
+<P><PRE>/* Nonzero means truncate lines in the display;
+   zero means continue them.  */
+
+int truncate_lines;
+</PRE>
+<P>除非<SAMP>`#endif'</SAMP>是一个没有嵌套而且很短（只有几行）的条件，每个
+<SAMP>`#endif'</SAMP>都应该含有一个注释。注释应该说明它所结束的条件，<EM>包括它的含义</EM>。
+<SAMP>`#else'</SAMP>应该含有一个说明条件与随后代码的<EM>含义</EM>的注释。例如：
+<P><PRE>#ifdef foo
+  ...
+#else /* not foo */
+  ...
+#endif /* not foo */
+</PRE>
+<P>但相反，按照如下方式为<SAMP>`#ifndef'</SAMP>写注释：
+<P><PRE>#ifndef foo
+  ...
+#else /* foo */
+  ...
+#endif /* foo */
+</PRE>
+<P>
+<H1><A href="#CSEC15" name=SEC15>清晰地使用C语言成分</A></H1>
+<P>请显式地声明函数的所有参数。不要因为它们是整数就忽略它们。
+<P>对外部函数以即将随后出现在源文件中的函数的声明应该出现在靠近文件开头
+（在第一个函数定义之前的某个地方）的同一个地方。或者其它的声明应该出现在头文件中。
+不要在函数中放置外部声明。
+<P>在过去一种常见的做法是在同一个函数中把同一个局部变量（比如说名为<CODE>tem</CODE>的变量
+反复地用于不同的值。但现在，更好的方式是为每个不同的目的分别定义局部变量，并且给它们以更
+有意义的名字。这不仅仅是程序更容易理解，它还会被好的编译程序所优化。你还可以把对局部变量
+的声明放到包含对它的使用的最小范围中。这可以把程序变得更清晰。
+<P>不要使用可以遮蔽全局标识符的局部变量和参数。
+<P>不要在跨越了行的声明中声明多个变量。在每一行中都以一个新的声明开头。例如，不应该：
+<P><PRE>int    foo,
+       bar;
+</PRE>
+<P>而应该：
+<P><PRE>int foo, bar;
+</PRE>
+<P>或者：
+<P><PRE>int foo;
+int bar;
+</PRE>
+<P>（如果它们是全局变量，在它们之中的每一个之前都应该添加一条注释。）
+<P>当你在一个if语句中嵌套了另一个if-else语句，总是用花括号把if-else括起来。因此，不要写：
+<P><PRE>if (foo)
+  if (bar)
+    win ();
+  else
+    lose ();
+</PRE>
+<P>而总是要写：
+<P><PRE>if (foo)
+  {
+    if (bar)
+      win ();
+    else
+      lose ();
+  }
+</PRE>
+<P>如果你在else语句中嵌套了一个if语句，即可以像下面那样写<CODE>else if</CODE>：
+<P><PRE>if (foo)
+  ...
+else if (bar)
+  ...
+</PRE>
+<P>按照与then那部分代码相同的缩进方式缩进<CODE>else if</CODE>的then部分代码，也可以在
+花括号中像下面那样把if嵌套起来：
+<P><PRE>if (foo)
+  ...
+else
+  {
+    if (bar)
+      ...
+  }
+</PRE>
+<P>不要在同一个声明中同时说明结构标识和变量或者结构标试和类型定义（typedef）。
+单独地说明结构标试，而后用它定义变量或者定义类型。
+<P>尽力避免在if的条件中进行赋值。例如，不要写：
+
+<P><PRE>if ((foo = (char *) malloc (sizeof *foo)) == 0)
+  fatal ("virtual memory exhausted");
+</PRE>
+<P>而要写：
+<P><PRE>foo = (char *) malloc (sizeof *foo);
+if (foo == 0)
+  fatal ("virtual memory exhausted");
+</PRE>
+<P>不要为了通过lint的检查而把程序修改得难看。请不要加入任何关于void的强制类型转换。
+没有进行类型转换的零作为空指针常量是很好的。
+<P>
+<H1><A href="#CSEC16" name=SEC16>命名变量和函数</A></H1>
+<P>请在名字中使用下划线以分隔单词，以便Emacs单词命令对它们来说有用。坚持使用小写；
+把大写字母留给宏和枚举常量，以及根据统一的惯例使用的前缀。
+<P>例如，你应该使用类似<CODE>ignore_space_change_flag</CODE>的名字；不要使用类似
+<CODE>iCantReadThis</CODE>的名字。
+<P>用于标明一个命令行选项是否被给出的变量应该在选项含义的说明之后，而不是选项字符
+之后，被命名。一条注释即应该说明选项的精确含义，还应该说明选项的字母。例如，
+<P><PRE>/* Ignore changes in horizontal whitespace (-b).  */
+int ignore_space_change_flag;
+</PRE>
+<P>当你需要为常量整数值定义名字的时候，使用<CODE>enum</CODE>而不是<SAMP>`#define'</SAMP>。
+GDB知道枚举常量。
+<P>使用14个字符或者少于14个字符的文件名，以避免无缘无故地在System V上导致问题。
+<P>
+<H1><A href="#CSEC17" name=SEC17>使用非标准的特征</A></H1>
+<P>许多现有的GNU工具在兼容Unix工具的基础上提供了许多方便的扩展。在实现你的程序时是否使用
+这些扩展是一个难以回答的问题。
+<P>一方面，使用扩展可以使程序变得清晰。但另一方面，除非人们可以得到其它的GNU工具，人们就
+不能创建程序。这可能使得程序只能在较少类型的机器上工作。
+<P>对于某些扩展，可能可以很容易地应付上述两种选择。例如，你可以用“关键字”
+<CODE>INLINE</CODE>定义函数并且把<CODE>INLINE</CODE>定义成一个宏，在根据编译器确定它是被
+扩展成<CODE>inline</CODE>或者扩展成空。
+<P>一般地，如果你能够在没有它们的情况下直截了当地完成任务，可能最好的办法是不使用扩展，
+但如果扩展可以大大地改进你的工作，就使用扩展。
+<P>对这一规则的一个例外是那些运行在大量不同系统上的大规模、已经创建的程序（例如Emacs）。
+使用GNU扩展将破坏这些程序。
+<P>另一个例外是那些作为编译本身的一部分的程序：这包括必须用其它编译器进行编译以构造GNU
+编译工具的任何东西。如果它们需要GNU编译器，那么没有人可以在没有安装它们的情况下编译它们。
+这将是不好的。
+<P>由于大部分计算机系统还没有实现标准C，使用标准C的特征，所以使用标准C就相当于使用
+GNU扩展，所以前面的考虑也适用于它。
+（除了那些令我们失望的标准特征，例如三元组序列（trigraphs）--永远不要使用它们。）
+<P><I>三元组序列是标准C中为了弥补某些终端上可用字符的不足而提供的、用三个字符组合代替
+一个特殊字符的方法。所有可用的三元组为：“??=”转换成“#”、“??/”转换成“\”、
+“??'”转换成“^”、“??(”转换成“[”、“??)”转换成“]”、“??!”转换成“|”、“??&lt”转换成“{”、
+“??&gt”转换成“}”、“??-”转换成“~”。
+<p align=right>----  译者注</I>
+<H1><A href="#CSEC18" name=SEC18>适用于所有程序的程序行为</A></H1>
+<P>通过动态地分配所有的数据结构来避免对任何数据结构，包括变量名、行、文件和符号，的
+长度和数量施加任何限制。在大多数Unix工具中，“长行被没有提示地截断”了。对于GNU工具
+来说，这是不可接受的。
+<P>读入文件的工具不应该放弃NUL字符、或者任何不可打印的字符，<EM>包括那些大于0177的字符</EM>。
+唯一明智的例外是那些为访问与不能处理这些字符的特定类型的打印机的界面而设计的工具。
+<P>为每个系统调用的返回值进行错误检查，除非你知道你希望忽略错误。把那些系统错误文字
+（来自于<CODE>perror</CODE>或者它的等价物）包括在<EM>每个</EM>有失败的系统调用导致的
+错误消息中，如果有的话还要包括文件名和工具名。仅仅给出“cannot open foo.c”或者“stat failed”
+是不够的。
+<P>检查每个对<CODE>malloc</CODE>或者<CODE>realloc</CODE>的调用以察看它是否返回0。即使在
+<CODE>realloc</CODE>使块变小的时候，也要检查它的返回值；在有些系统中总是把块的大小扩大到2的幂次。
+如果你申请更少的空间，<CODE>realloc</CODE>可能得到一个不同的块。
+<P>在Unix中，如果<CODE>realloc</CODE>返回0，那么它就可以破坏存储块。GNU <CODE>realloc</CODE>
+没有这个错误：如果它失败了，原来的块不会被改变。放心地假定这个错误已经被修正了。如果你希望在
+Unix上运行你的程序，并且在这种情况下不希望失去内存块，你可以使用GNU <CODE>malloc</CODE>。
+<P>你必须假定<CODE>free</CODE>将改变被释放的块的内容。任何你希望从块中获得的东西，你必须在
+调用<CODE>free</CODE>之前拿到它。
+<P>使用<CODE>getopt_long</CODE>对参数进行解码，除非参数的语法使得这样做变得不合情理。
+<P>当静态内存在程序执行的时候被写入的情况下，显式地使用C代码来初始化它。保留对那些不会被改变
+的数据的C初始化声明。
+<P>尽力避免访问晦涩的Unix数据结构的低级界面（例如文件目录、utmp或者内核内存的分布），
+因为它们通常会降低兼容性。如果你希望找到目录中的所有文件，使用<CODE>readdir</CODE>或者其它
+高级的界面。GNU兼容将地支持它们。
+<P>在缺省状态下，GNU系统将提供BSD的信号处理函数和POSIX的信号处理函数。因此GNU软件应该使用它们。
+<P>在错误中检测到“不可能”的条件是，只要退出就行。没有理由打印任何消息。这些检查表明有bug存在。
+任何希望修正错误的人都必须阅读源代码并且运行调试器。所以在源代码中通过注释给出问题的解释。相关的
+数据将储存在变量中，这些变量很容易被调试器检测到，所以没有理由把它们转移的其它任何地方。
+<P>
+<H1><A href="#CSEC19" name=SEC19>格式化错误信息</A></H1>
+<P>来自于编译器的错误信息应该使用格式：
+<P><PRE><VAR>source-file-name</VAR>:<VAR>lineno</VAR>: <VAR>message</VAR>
+</PRE>
+<P>如果有适当的源文件存在，则来自于非交互式程序的错误信息应该使用格式：
+<P><PRE><VAR>program</VAR>:<VAR>source-file-name</VAR>:<VAR>lineno</VAR>: <VAR>message</VAR>
+</PRE>
+<P>或者，如果没有相关的源文件，则应该使用格式：
+<P><PRE><VAR>program</VAR>: <VAR>message</VAR>
+</PRE>
+<P>在一个交互式程序（从终端读入命令的程序）中，不把程序名包括在错误信息中更好一些。指明程序正在
+运行的地方应该是提示符或者屏幕的布局。（当相同的程序在运行时从源文件中，而不是从终端中读取输入，
+它就不是交互式的了，并且最好按照非交互方式风格打印错误信息。）
+<P>在字符串<VAR>message</VAR>被放置在程序名和/或文件名之后时，它不应该以大写字母开头。此外，它
+也不应该以句点结尾。
+<P>来自于交互式程序的错误信息，以及其它的诸如使用信息的信息，应该以大写字母开头。但它们不应该
+以句点结尾。
+<P>
+<H1><A href="#CSEC20" name=SEC20>库的行为</A></H1>
+<P>试着使库函数成为可再入的。如果它们需要进行动态内存分配，至少要试图避免任何来自
+malloc本身的非可再入的方面。
+<P>这里给出了一些库的命名惯例，以避免名字的冲突。
+<P>为库选择一个多于两个字符的命名前缀。所有的外部函数和变量名都应该以这个前缀开头。
+还有，在任何给定的库成员中，仅仅应该含有一个函数或者变量。这通常意味着要把每个函数
+和变量都放在单独的源文件中。
+<P>一个例外是如果两个符号总是在一起使用，而使得没有任何合理的程序只需要使用其中的
+一个而不使用另外一个；那么它们可以被放在同一个文件中。
+<P>标示没有在文档中给予说明的调用点的外部符号的名字应该以<SAMP>`_'</SAMP>开头。它们
+还要包括为库选择的名字前缀，以防止与其它库可能产生的冲突。如果你愿意，它们可以和
+用户调用点放在同一个文件中。
+<P>你可以按照你的意愿使用静态函数和静态变量并且它们不需要服从任何命名惯例。
+<P>
+<H1><A href="#CSEC21" name=SEC21>适用于GNU的移植性</A></H1>
+<P>在Unix世界中，“移植性”往往指的是移植到不同的Unix版本中。对于GNU软件来说是次要的，
+这是因为它们的主要目的是运行在GNU内核上而且仅仅运行与其上，使用GNU C编译器编译并且仅仅
+由它进行编译。不同cpu上的各种GNU系统的变种数量将象不同cpu上的Berkeley 4.3系统的变种一样多。
+<P>今天所有的用户都在非GNU系统上运行GNU软件。所以有必要支持各种非GNU系统；但不是特别重要。
+在合理范围的系统上获得可移植性的最简单方式是使用Autoconf。由于大部分程序需要知道的关于
+主机的知识已经由Autoconf写下来了，所以你的程序不太可能需要知道比Autoconf所能够提供的知识
+的更多知识。
+<P>因为目前GNU内核还没有被完成，所以还难以确定GNU内核将提供那些工具。因此，就假定你可以使用
+你在4.3中可以使用的任何东西；只要避免使用有更高级的替代结构（readdir）存在的半内部的数据结构
+（例如，directories）就可以了。
+<P>你可以自由地假设任何合理C语言标准工具、库或者内核，因为我们将发现有必要在完整的GNU系统
+中支持它们，而不论我们是否已经这样做了。一些现有的内核或者C编译器所缺少的功能与GNU内核和
+C编译器对它们的支持没有关系。
+<P>另外一个需要担心的是cpy类型间的不同，例如字节序（byte order）的不同和对齐限制的不同。
+16位的机器恐怕不会被GNU所支持，所以没有必要花费任何时间去考虑整数少于32位的可能性。
+<P>你可以假定所有的指针都具有相同的格式，而不论它们指向什么，并且它们实际上都是一个整数。
+在一些怪异的机器上不是这样，但它们并不重要；不要为迎合它们而浪费时间。
+此外，我们最终将把函数原型放到所有的GNU程序中，而那将可能使你的程序即使在怪异的机器上也能够工作。
+<P>因为一些重要的机器（包括68000）是高位开头（big-endian），不能假定整数对象的地址就是最低位
+字节（least-significant）的地址是十分重要的。因此，不要犯如下的错误：
+<P><PRE>int c;
+...
+while ((c = getchar()) != EOF)
+        write(file_descriptor, &amp;c, 1);
+</PRE>
+<P>你可以假定使用一兆内存是合理的。除非可以在那个层次可以做到，不要为减少内存的使用而费力。
+如果你的程序创建了复杂的数据结构，就把它们存放在内核中，并且在malloc返回0的时候给出一个致命错误
+就行了。
+<P>如果一个程序按照行工作并且可以被用于任何用户提供的输入文件，它就应该在内存中
+仅仅保存一行，因为这并不十分困难并且用户将需要能够操作比内核一次能够处理的文件更大的输入文件。
+<P>
+<H1><A href="#CSEC22" name=SEC22>命令行界面标准</A></H1>
+<P>请不要让工具的行为依赖于调用它的名字。有时需要把一个工具连接到不同的名字，
+并且这将不会改变它的功能。
+<P>最为替代，可以在运行时使用选项或者编译器选项，或者同时使用两者来选择不同的程序行为。
+<P>服从POSIX关于程序的命令行选项的指导是一个好主意。这样做的最简单方式是使用<CODE>getopt</CODE>
+来分析选项。需要指出的是，除非使用了特殊参数<SAMP>`--'</SAMP>，GNU版本的<CODE>getopt</CODE>
+通常允许选项出现在参数中的任何位置。这不是POSIX的规定；它是GNU的扩展。
+<P>请为Unix风格的单字符选项定义等价的长名字选项。我们希望以这种方式使GNU对用户更加友好。
+通过使用GNU函数<CODE>getopt_long</CODE>很容易做到这一点。
+<P>通常仅仅把最为普通参数给出的文件名当作输入文件是一个好主意；所有输出文件都应该通过选项给出
+（使用<SAMP>`-o'</SAMP>更好）。即使你为了保持兼容性而允许把普通参数当作输出文件名，你仍然可以
+试图为输出文件名提供一个合适的选项。这将为GNU工具带来更多的一致性，以减少用户需要记忆的特征。
+<P>程序还应该支持一个用于输出程序的版本号的选项<SAMP>`--version'</SAMP>，以及支持一个用于输出
+选项用法信息的选项<SAMP>`--help'</SAMP>。
+<P>
+<H1><A href="#CSEC23" name=SEC23>为程序制作文档</A></H1>
+<P>为GNU程序制作文档请使用Texinfo。参见Texinfo手册，硬拷贝或者GNU Emacs Info子系统
+中的版本都行。（<KBD>C-h i</KBD>）。作为例子，可以看看现有的GNU Texinfo文件
+（例如，在GNU Emacs发布版本中<TT>`man/'</TT>目录下的Texinfo文件）。
+<P>手册的标题页应该说明本手册适用于程序的那个版本。手册的顶节点也应该包含这个信息。
+如果手册比程序改变得还要快，后者与程序是无关的，请在上述两个地方说明手册的版本号。
+<P>手册应该说明所有的命令行参数和所有的命令。手册应该给出使用它们的例子。但不要把
+手册组织成一个特征的列表。相反，在手册中按照把用户需要理解的概念放在特征之前的方式组织文档。
+说明用户可能需要达到的目的，并且解释如何完成它们。不要把Unix man手册作为书写GNU文档
+的模式；它们不是值得模仿的好例子。
+<P>手册应该有一个名为<SAMP>`<VAR>program</VAR> Invocation'</SAMP>或者
+<SAMP>`<VAR>program</VAR> Invoke'</SAMP>或者<SAMP>`Invoking <VAR>program</VAR>'</SAMP>
+的节点，其中<VAR>program</VAR>是该程序的程序名，也就是在shell中输入以运行程序的那个名字。
+该节点（如果它有子节点，也包括子节点）应该说明程序的命令行参数以及如何运行它（也就是
+人们将在man手册中看到的那一类信息）。以<SAMP>`@example'</SAMP>开头包含一个程序可以使用的
+所有选项和参数的模板。
+<P>另一种方式是，在某些菜单中添加一个名字符合上述模式之一的菜单项。它表明由菜单项指出
+的节点就是为此而创建的，而不管这个节点的实际名字是什么。
+<P>将会有一个自动的功能使得用户可以给出程序名并且只需要快速地阅读手册的这个部分。
+<P>如果一个手册说明了多个程序，那么手册应该为每个它所说明的程序定义一个这样的节点。
+<P>除了程序包的手册之外，包还应该包含一个名为<TT>`NEWS'</TT>的文件，它包含了一个对用户来说
+是可见的、并且值得一提的修改。在每个新的发行版本中，在文件的前面添加新的条目并且指出适用于
+它们的版本。不要删除原来的条目；把它们保留在新条目的后面。按照这种方式，从以前的版本升级的
+用户就可以看到有那些新的功能。
+
+<P>如果<TT>`NEWS'</TT>文件变得太长了，可以把一些陈旧的条目放到一个名为<TT>`ONEWS'</TT>
+的文件中，并且在<TT>`NEWS'</TT>文件的结尾加一个说明以告知用户参考<TT>`ONEWS'</TT>。
+<P>如果你愿意，你可以在提供Texinfo手册的同时提供man手册。但请记住维护man手册需要在每次程序
+改变的时候都付出努力。你花费在man手册上的任何时间都消耗了你本来能够用在贡献更有价值的东西
+上的时间。
+<P>因此，即使用户自愿提供man手册，你可能会发现这个礼物太麻烦而不值得接受。除非你手头有时间，
+并且除非有志愿者愿意承担维护它的全部责任--以至于你可以把它完整地交给他，拒绝提供man手册可能
+会更好一些。如果志愿者停止维护man手册，那么也不必感到有责任让你自己承担它；在其它的出现志愿者
+维护它之前撤销man手册也许更好一些。
+<P>另一种方式是，如果你希望man手册的内容与实际情况区别很小而使得man手册仍然有用，可以在man
+手册的开头给出显著的声明以说明你没有维护它并且Texinfo手册是更加权威的，同时指出如何访问
+Texinfo文档。
+<P>
+<H1><A href="#CSEC24" name=SEC24>制作发行包</A></H1>
+<P>发行Foo的版本69.96的tar文件包的名字是<TT>`foo-69.96.tar'</TT>。它应该被解包到名为
+<TT>`foo-69.96'</TT>的子目录中。
+<P>对程序的创建和安装不应该修改发布版本中的任何文件。这意味着以任何方式作为程序的正式部分的
+所有文件都必须被分成<DFN>源文件</DFN>和<DFN>非源文件</DFN>两类。源文件由人手工
+编写并且不会被自动改变；非源文件则在Makefile的控制下由程序从源文件生成。
+<P>自然地，所有源文件必须出现在发布版本中。只有在非源文件不是过时的并且与机器是无关的情况下，
+从而在创建发布版本时将不会需要修改它们，才能把非源文件包含在发布版本中。我们一般把由Bison、
+Lex、TeX和Makeinfo生成的非源文件包括进去；这有助于避免在我们的发布版本中引入不必要的依赖性，
+以使得用户可以安装他们需要安装的包。
+<P><STRONG>永远不要</STRONG>把实际上可能在程序的创建和安装中被修改的非源文件包含在发布版本中。
+所以如果你发布非源文件，在你作新的发布时，总是要确认它们没有过时。
+<P>确保从发布包中解开的目录（以及所有的子目录）对于所有人来说都是可写的（八进制模式777）。
+这样做是为了使那些保留从tar包中取出的文件的所有权（ownership）和许可权（permissions）的老版本的
+<CODE>tar</CODE>，即使在用户没有授权的情况下也能够提取出所有的文件。
+<P>确保在发布版本中的没有多于14个字符的文件名。同样地，由程序创建的文件都不含有长于14个字符的
+文件名。这样做的原因是有些系统坚持POSIX标准的愚蠢解释，并且拒绝打开长文件名，而不是象在过去那样
+把文件名截短。
+<P>不要在发布版本本身包含任何符号连接。如果tar文件包括符号连接，那么人们甚至不能在那些不能支持
+符号连接的系统上打开包。还有，不要在不同的目录中为一个文件使用多个名字，因为某些文件系统不能
+处理它并且这使得包不能在这类文件系统上被打开。
+<P>试着确保所有的文件名在MS-DOG下都是唯一的。在MS-DOG下文件名由8个字符组成，后面还可以附加
+一个点和至多三个字符。MS-DOG将截断点之前和之后的多余字符。因此，<TT>`foobarhacker.c'</TT>和
+<TT>`foobarhacker.o'</TT>不会被混淆；它们被截断成<TT>`foobarha.c'</TT>和<TT>`foobarha.o'</TT>
+，它们是截然不同的。
+<P>在你的发布版本中包含一个你用来测试打印所有<TT>`*.texinfo'</TT>文件的<TT>`texinfo.tex'</TT>的副本。
+<P>同样地，如果你的程序使用了诸如regex、getopt、obstack或者termcap之类的小GNU软件包，把它们包括在
+发布文件中。把它们排除在外将使发布文件小一些，其代价是给那些不知道需要哪些额外文件的用户带来不便。
+
+</body></html>

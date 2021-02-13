@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://www.aspalliance.com/wiseasp/codingstandards.asp -->
+<HTML><HEAD><TITLE>Wise ASP - ASP and JScript Coding Standards and Performance Tips</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META http-equiv=Content-Style-Type content=text/css>
+<META 
+content="asp jscript resource aspalliance activeserverpages&#13;&#10;active server pages template performance tips coding standards scott kallmeyer wise asp" 
+name=Keywords>
+<META 
+content="I hope you learn many new and interesting &#13;&#10;things about ASP and JScript reading these articles. I am always &#13;&#10;open for any feedback and/or questions you might have, so &#13;&#10;just email me anytime. If you have ideas or suggestions, &#13;&#10;let me know." 
+name=Description><LINK 
+href="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/alliance.css" 
+type=text/css rel=STYLESHEET>
+<META content="MSHTML 5.50.4134.100" name=GENERATOR></HEAD>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=secondLining colSpan=3>&nbsp;</TD>
+  <TR>
+    <TD class=secondLining width="2%">&nbsp;</TD>
+    <TD class=mainLining width="5%">&nbsp;</TD>
+    <TD align=middle width="93%" bgColor=black><IMG height=100 
+      alt="Wise ASP Logo" 
+      src="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/wiseasp.gif" 
+      width=341 border=0> <IMG alt="Surfer's Choice Member" 
+      src="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/scpmember.gif" 
+      align=right border=0> </TD>
+  <TR>
+    <TD class=secondLining width="2%">&nbsp;</TD>
+    <TD class=mainLining width="5%">&nbsp;</TD>
+    <TD width="93%" text-indent="3em"><IMG hspace=0 
+      src="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/topleftcorner.gif" 
+      align=left border=0> <BR><!--		<img src="images/blank.gif" border=0 WIDTH=4 HEIGHT=7> -->
+      <P><A name=top></A></P>
+      <DIV align=right>
+      <FORM name=fileForm action=/wiseasp/codingstandards.asp 
+      method=post><SELECT onchange=document.forms[0].submit() name=jumpto> 
+        <OPTION value=/wiseasp selected>-- You can jump directly to --</OPTION> 
+        <OPTION value=/wiseasp/default.asp>Wise ASP Home page</OPTION> <OPTION 
+        value=/wiseasp/aboutaspnet.asp>What is ASP.net Next Generation Web 
+        Services?</OPTION> <OPTION value=/wiseasp/aboutwebforms.asp>-- What are 
+        Web Forms in ASP.net?</OPTION> <OPTION value=/wiseasp/realquick.asp>What 
+        is Active Server Pages, etc. ?</OPTION> <OPTION 
+        value=/wiseasp/aboutiisinstallation.asp>IIS Installation</OPTION> 
+        <OPTION value=/wiseasp/aboutpwsinstallation.asp>PWS 
+        Installation</OPTION> <OPTION value=/wiseasp/aboutenumerator.asp>HTML 
+        Form Elements and the JScript Enumerator</OPTION> <OPTION 
+        value=/wiseasp/aboutjscriptbasics.asp>JScript Basics</OPTION> <OPTION 
+        value=/wiseasp/aboutregularexpression.asp>JScript Regular 
+        Expression</OPTION> <OPTION value=/wiseasp/template.asp>ASP Scripting 
+        Template</OPTION> <OPTION value=/wiseasp/aboutrecordset.asp>The 
+        Recordset Object</OPTION> <OPTION 
+        value=/wiseasp/aboutwebsafecolors.asp>Web Safe Colors</OPTION> <OPTION 
+        value=/wiseasp/aboutforms.asp>HTML Form Elements</OPTION> <OPTION 
+        value=/wiseasp/abouttextfields.asp>-- Text Fields</OPTION> <OPTION 
+        value=/wiseasp/abouttextareas.asp>-- Text Areas</OPTION> <OPTION 
+        value=/wiseasp/aboutradiobuttons.asp>-- Radio Buttons</OPTION> <OPTION 
+        value=/wiseasp/aboutcheckboxes.asp>-- Checkboxes</OPTION> <OPTION 
+        value=/wiseasp/aboutmenus.asp>-- Menus</OPTION> <OPTION 
+        value=/wiseasp/aboutemail.asp>Using CDONTS as Your Email Form</OPTION> 
+        <OPTION value=/wiseasp/aboutfilesystemobject.asp>The FileSystemObject 
+        Object</OPTION> <OPTION value=/wiseasp/aboutadrotator.asp>Using The Ad 
+        Rotator</OPTION> <OPTION value=/wiseasp/aboutcontentlinking.asp>Using 
+        the Content Linking Object</OPTION> <OPTION 
+        value=/wiseasp/emailform.asp>Please send me your 
+      comments</OPTION></SELECT> <INPUT type=submit value=Go> </FORM></DIV>
+      <H2>Wise ASP - ASP and JScript Coding Standards and Performance 
+      Tips</H2>Staying on that bleeding edge can be a great kick, but it can 
+      also leave you scratching your head. You may have come up with something 
+      totally cool for your Web site -- but since no other Web site has the 
+      feature, you end up wondering where to get help. I am always looking for 
+      ways to improve the performance of Web pages and to improve on coding 
+      styles. I have been able to compile from different sources some great 
+      suggestions (some my own) from people on the Internet, including ways to 
+      improve ASP performance and style tips. 
+      <H3>File names</H3>File names should be short, descriptive, lower case and 
+      contain no spaces. Consistent case will increase the speed of the web 
+      server by improving the caching mechanism. IIS thinks that "fileName.asp" 
+      and "filename.asp" are two different files, so it has to do a lot of 
+      wasted work. Avoid this by always writing filenames entirely in all 
+      lowercase. 
+      <P><A name=SQL>
+      <H3>SQL Notes</H3>All SQL calls should use consistent case: this will 
+      increase the speed of the database server by improving the caching 
+      mechanism. The database server thinks that <PRE>"SELECT name FROM items" 
+ and 
+"select name from items" 
+</PRE>are two different queries, so it has to do a lot of wasted work. 
+      Avoid this by always writing queries entirely in all lowercase or else 
+      upper case for protected words (such as SELECT) and lower case for all 
+      others. Do not use "SELECT *" in production code. Instead select only the 
+      column names that you need. This will improve your query speed and overall 
+      web/database communication speed. Be sure to close ADO <B>Connection</B> 
+      and <B>Recordset</B> objects when you are done with them. 
+      <B>Important:</B> Be very careful about accepting user input and adding it 
+      to a query. User-entered apostrophes or percent signs will mess up your 
+      query and can pose a security risk. Always check all user input for "%" 
+      and "'". 
+      <P><A name=localVariables>
+      <H3>Use Local Variables Whenever Possible</H3>Local variables are 
+      variables that reside within subroutines and functions (this is known as 
+      local scope). These variables are compiled into numeric references and put 
+      in a table. Local variable references can be resolved at compile time. 
+      Global variables are resolved at run time. This means that local-variable 
+      access is many times faster than global-variable access. Also, 
+      undimensioned global variables are the slowest of all -- the first time an 
+      undimensioned global variable is used, the entire object model is searched 
+      for an object with that named property before a new one is created. So use 
+      local-variables to get that better performance. 
+      <P><A name=collectionValues>
+      <H3>Copy Collections Values to Local Variables </H3>If there are 
+      collection values that you are using more than once, copy these values 
+      onto the client in the form of local variables. This saves you a look-up 
+      operation on the collection each time you use the value and will speed up 
+      your script. 
+      <P><A name=combineStatements>
+      <H3>Combine ASP Statements </H3>Try not to intersperse HTML and script too 
+      much, if at all. Instead, try to have blocks of script and few client-side 
+      HTML. Actually, the best solution to this is write as much of your 
+      server-side ASP within &lt;script language=jscript runat=server&gt; ... 
+      &lt;/script&gt; To see more details about this tip, go to my <A 
+      href="http://www.aspalliance.com/wiseasp/template.asp">article</A>. 
+      <P><A name=global.asa>
+      <H3>global.asa</H3>In order to make <B>Application</B> and <B>Session</B> 
+      work in ASP, we use a single file name <B>global.asa</B> for each 
+      "application". <B>global.asa</B> contains the state of the application via 
+      the <B>Application</B> and <B>Session</B> object properties and any global 
+      code the "application" requires to alter it. This file resides in the 
+      directory on the server that is the root of that application -- where the 
+      files that make up the application are located. Any subdirectoires of the 
+      main application directory are also part of the application, and the 
+      <B>gloabal.asa</B> applies to their contents as well. This means you need 
+      to be aware of the possibility of overlap between applications, and should 
+      generally create separate directoires for each one. So when we talk about 
+      an application in ASP, we are actually talking about all the files in the 
+      same directory as global.asa, and any of its physical 
+      subdirectories.<BR>&nbsp;&nbsp;&nbsp;You can use the <B>global.asa</B> to 
+      gain a significant speed improvement. <B>global.asa</B> is not displayed 
+      to users but stores application-global event information and objects. This 
+      means the read from the .asp file happens <B>once per server</B> instead 
+      of once per page per user. You can run a separate .asp file to refresh the 
+      contents of the Application variable. &nbsp;&nbsp;&nbsp;Confused about how 
+      to implement this? If the contents of the cached information need to 
+      change, you can call into an Administrator-access-only .asp file 
+      containing script that can do an <B>Application.Lock</B>, update the 
+      cached information and finally do an 
+      <B>Application.Unlock</B>.<BR>&nbsp;&nbsp;&nbsp;Do not hardcode the dsn 
+      string, the database user id, or the database password in your .asp files. 
+      Instead store them in application variables in Application_OnStart(). <PRE>SCRIPT LANGUAGE=JSCRIPT RUNAT=SERVER 
+function Application_OnStart() 
+{ 
+  Application("dbName") = "dbName"; \ Database Name(ODBC name,etc. 
+  Application("dbUserID") = "userID"; \ Database User ID 
+  Application("dbUserPw") = "password"; \ Database User Password 
+} 
+/SCRIPT 
+</PRE>You can now easily change and maintain the dsn information for an 
+      entire application. 
+      <P><A name=sessionObject>
+      <H3>Be Careful of the Session Object </H3>You can use the <B>Session</B> 
+      object to store information that you may need for a particular 
+      user-session. Variables that are stored in the <B>Session</B> object are 
+      not discarded when the user jumps between pages in the application. 
+      Instead, these variables persist for the entire user-session. The Web 
+      server automatically creates a <B>Session</B> object when a Web page from 
+      the application is requested by a user who does not already have a 
+      session. The server destroys the <B>Session</B> object when the session 
+      expires or is abandoned. To avoid this, you can turn off the Session 
+      feature. Turning it off for the entire server is faster but drops a lot of 
+      functionality. Instead, be very careful to use the Session object only 
+      when you really need to. If you use the <B>Session</B> object at all in 
+      your application, be sure to use it as soon as possible in order to avoid 
+      the <B>Session</B> object from being reset. In IIS, the session state can 
+      be enabled on a per-application basis and it can be disabled for specified 
+      .asp files. 
+      <P><A name=servervariables>
+      <H3>Avoid Using Server Variables </H3>Accessing server variables causes 
+      your Web site to make a special request to the server and collect all 
+      server variables, not just the one that you requested. This is akin to 
+      needing to retrieve a specific item in a folder that you have in that 
+      messy garage of yours. When you want that one item, you have to go to the 
+      garage to get the folder first, before you can access the item. This is 
+      the same thing that happens when you request a server variable, the 
+      performance hit occurs the first time you request a server variable. 
+      Subsequent requests for other server variables does not cause a 
+      performance hit. 
+      <P><A name=literalpaths>
+      <H3>Use Literal Paths</H3>Try to avoid MapPath if at all possible. 
+      Instead, use the literal path if you know it. Using MapPath requires IIS 
+      to retreive the current server path, which means a special request to IIS 
+      -- which in turn means (you guessed it) decreased performance. 
+      <P><A name=object>
+      <H3>Instantiate Objects Using the &lt;OBJECT&gt; Tag </H3>If you need to 
+      refer to objects that may not be used, instantiate them by using the 
+      &lt;OBJECT&gt; tag rather than using Server.CreateObject. Using 
+      Server.CreateObject causes the object to be created immediately. If you 
+      don't use that object later, you end up wasting resources. 
+      <P><A name=broswer>
+      <H3>Use Client-Side Validation Abilities </H3>If you are running a 
+      generation 4 browser, the browser is capable of doing some validation for 
+      you. Take advantage of this whenever you can. Perform validation with your 
+      server-side scripting. When all else fails, then you can go ahead and 
+      access your database on the server. But remember, whenever you access that 
+      database that lives on the server, you are going to take a performance 
+      hit. This can be very expensive if you have several values in a form that 
+      you are validating. If you know that you will need to run some script on 
+      the client side, go ahead and move the code to the client side for faster 
+      performance. When you are running on the client, you have the processor(s) 
+      for your use; the server has to use its processing power for all of the 
+      requests it receives. 
+      <P><A name=comments>
+      <H3>Use Server-Side Comments Instead HTML Comments</H3>It does seem that 
+      if you remove all HTML comments (script comments are fine), large sections 
+      of HTML text can be "block copied" to the client. Of course, for your own 
+      edification (and to keep code maintainence from being a nightmare) you 
+      need comments. So go ahead and use server-side comments. Not only could 
+      you receive a perfomance boost but you will keep your comments to 
+      yourself. Not everyone needs to know your secrets. 
+      <P><A name=includes>
+      <H3>Standards for "include" files:</H3>You should use include files only 
+      when absolutely necessary. Do not put too many functions into a file. 
+      Otherwise, compile time is much slower, which hurts performance. Files 
+      that contain any asp code should be named with the .asp file extension. 
+      This is for security reasons. Use the .inc extension if the included file 
+      contains pure HTML and no asp. Include files should not contain and &lt;% 
+      , %&gt; or &lt;%@ tags. Include files should have no <A 
+      href="http://www.aspalliance.com/wiseasp/template.asp"><B>main()</B></A> , 
+      and should not call <B>main()</B>. Functions should be surrounded by 
+      &lt;SCRIPT LANGUAGE=JScript RUNAT=SERVER&gt; and &lt;/SCRIPT&gt; tags. All 
+      functions must have unique names, and should not conflict with the names 
+      of functions in other files which includes this file. All functions should 
+      be well documented. 
+      <P><A name=getStringField()>
+      <H3>function getStringField()</H3>This function will convert a string that 
+      is defined as "null" or "undefined" in JScript to a blank string. 
+      <B>getStringField()</B> becomes especially useful when dealing with data 
+      as it comes from a recordset. It should be included in all of your ASP 
+      programs that interact with a database. You will no longer have to worry 
+      about the dreaded undefined. <PRE>function getStringField(theRSField) { 
+  theStr = String(theRSField); 
+  if (theStr == "null" || theStr == "undefined") 
+    return ""; 
+  else 
+    return theStr; 
+} 
+</PRE>
+      <P>&nbsp;&nbsp;That's the end. Feel free to cut and paste this code and 
+      use it yourself. Thanks for reading and feel free to jump around <B>Wise 
+      ASP</B> using the select box at the top of the screen. <!-- Begin 100x30 Alliance Ad --><!-- End 100x30 Alliance Ad --><!-- Begin 468x60 Alliance Ad --><!-- End 468x60 Alliance Ad --><!-- Begin 125x125 Alliance Ad --><!-- End 125x125 Alliance Ad --><!-- Begin 125x125 Alliance Ad --><!-- End 125x125 Alliance Ad -->
+      <DIV class=footer>
+      <P>
+      <HR width="75%">
+
+      <P><!-- BEGIN ASP WEB RING CODE --><IMG height=100 
+      src="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/aspringlogo100x100.gif" 
+      width=100 align=left useMap=#ASPWebRingMap border=0> <MAP 
+      name=ASPWebRingMap><AREA shape=RECT coords=0,0,100,69 
+        href="http://www.asp101.com/webring"><AREA shape=RECT coords=0,70,100,85 
+        href="http://www.webring.org/cgi-bin/webring?ring=asp101;id=133;prev"><AREA 
+        shape=RECT coords=0,86,100,100 
+        href="http://www.webring.org/cgi-bin/webring?ring=asp101;id=133;next"></MAP><!-- END ASP WEB RING CODE --><A 
+      href="http://www.amazon.com/exec/obidos/ASIN/0764546015/qid=956243080/sr=1-2/002-8085501-8229032"><IMG 
+      height=100 alt="TY ASP 3.0" 
+      src="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/tyasp30.jpg" 
+      width=100 align=left border=1> </A>Not to be disclosed outside 
+      <STRONG>Wise ASP</STRONG> without prior written permission.<BR>Copyright 
+      ?1998-2000.<BR></P></DIV><A 
+      href="http://click.linksynergy.com/fs-bin/click?id=FJu9D7gS9ZA&amp;offerid=20877.10000018&amp;type=4&amp;subid=0"><IMG 
+      alt=88x31cardsvisoranm 
+      src="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/visor_anm.gif" 
+      border=0></A><IMG height=1 
+      src="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/show.gif" 
+      width=1 border=0> </TD></TR>
+  <TR>
+    <TD class=secondLining width="2%">&nbsp;</TD>
+    <TD class=mainLining width="5%">&nbsp;</TD>
+    <TD align=middle width="93%"><IMG hspace=0 
+      src="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/bottomleftcorner.gif" 
+      align=left border=0> </TD></TR>
+  <TR>
+    <TD class=secondLining width="2%">&nbsp;</TD>
+    <TD class=mainLining width="5%">&nbsp;</TD>
+    <TD align=middle width="93%" bgColor=black><IFRAME marginWidth=0 
+      marginHeight=0 
+      src="Wise ASP - ASP and JScript Coding Standards and Performance Tips.files/displayad.htm" 
+      frameBorder=0 width=100 scrolling=no height=30 
+      target='_parent"'><script language="javascript" src="http://ads.aspalliance.com/displayad.aspx?t=2&amp;m=1&amp;target=_parent&amp;js=1&amp;s=wiseasp&amp;page=0.3886801663946357"></script></IFRAME><IFRAME 
+      marginWidth=0 marginHeight=0 
+      src="C:\My Documents\Wise ASP - ASP and JScript Coding Standards and Performance Tips.files\displayad(1).htm" 
+      frameBorder=0 width=468 scrolling=no height=60 
+      target='_parent"'><script language="javascript" src="http://ads.aspalliance.com/displayad.aspx?t=1&amp;m=1&amp;target=_parent&amp;js=1&amp;s=wiseasp&amp;page=0.14106035685045232"></script></IFRAME><IFRAME 
+      marginWidth=0 marginHeight=0 
+      src="C:\My Documents\Wise ASP - ASP and JScript Coding Standards and Performance Tips.files\displayad(2).htm" 
+      frameBorder=0 width=100 scrolling=no height=30 
+      target='_parent"'><script language="javascript" src="http://ads.aspalliance.com/displayad.aspx?t=2&amp;m=1&amp;target=_parent&amp;js=1&amp;s=wiseasp&amp;page=0.5212286430671849"></script></IFRAME></TD></TR>
+  <TR>
+    <TD class=secondLining width="2%">&nbsp;</TD>
+    <TD class=mainLining width="5%">&nbsp;</TD>
+    <TD align=middle width="93%" 
+bgColor=black>&nbsp;</TD></TR></TBODY></TABLE></BODY></HTML>

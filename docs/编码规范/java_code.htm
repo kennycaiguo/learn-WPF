@@ -1,0 +1,491 @@
+<html>
+<head>
+<title>Huihoo.org - Java 程序编码规范</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+<!--开始头部-->                   
+<table border="0" width="100%" cellspacing="0">
+<tr>
+<td align="left" valign="top">
+<a href="../index.html"><img src="../huihoo.org.jpg" alt="Huihoo.org - Open Enterprise Foundation" align="left" border="0"/></a>
+</tr>
+</table> 
+<!--结束头部-->                   
+
+<!--开始中部-->
+<table width="100%" border="0" cellspacing="0" cellpadding="3" align="center">
+<tr width='100%'>
+<td width='1%'></td>
+<!--开始正文-->   
+<td width='98%'>
+<hr width='98%' noshade="noshade" size="1"> 
+<br>
+<center><h4>Java 程序编码规范</h4></center>
+<br>
+(来源:http://www.ibm.com.cn)
+<br><br>
+	<p>李小敏<br>
+	www.yway.com 软件工程师<br>
+	2000年12月</p>
+
+<p><em>&nbsp;&nbsp;&nbsp;&nbsp;所有的程序开发手册都包含了各种规则。一些习惯自由程序人员可能对这些规则很不适应，但是在多个开发人员共同写作的情况下，这些规则是必需的。这不仅仅是为了开发效率来考虑，而且也是为了后期维护考虑。</em></p> 
+
+
+<a name="1">
+<p><strong class="subhead">命名规范</strong>
+<br>定义这个规范的目的是让项目中所有的文档都看起来像一个人写的，增加可读性，减少项目组中因为换人而带来的损失。（这些规范并不是一定要绝对遵守，但是一定要让程序有良好的可读性）
+<br>
+	<UL>
+		<li>Package 的命名	
+		<br>Package 的名字应该都是由一个小写单词组成。
+	</UL>
+	<UL>
+		<li>Class 的命名
+		<br>Class 的名字必须由大写字母开头而其他字母都小写的单词组成
+	</UL>
+	<UL>
+		<li>Class 变量的命名
+		<br>变量的名字必须用一个小写字母开头。后面的单词用大写字母开头。
+	</UL>
+	<UL>
+		<li>Static Final 变量的命名
+		<br>Static Final 变量的名字应该都大写，并且指出完整含义。
+	</UL>
+	<UL>
+		<li>参数的命名
+		<br>参数的名字必须和变量的命名规范一致。
+	</UL>
+	<UL>
+		<li>数组的命名
+		<br>数组应该总是用下面的方式来命名：
+		<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br>
+		<pre>byte[] buffer;
+		</pre></td></tr></table>
+		而不是：
+		<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br>
+		<pre>byte buffer[];
+		</pre></td></tr></table>
+	</UL>
+	<UL>
+		<li>方法的参数
+		<br>使用有意义的参数命名，如果可能的话，使用和要赋值的字段一样的名字：
+		<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+SetCounter(int size){
+	this.size = size;
+}
+		</pre></td></tr></table>
+	</UL>
+</p>
+
+
+
+<a name="2">
+<p><strong class="subhead">Java 文件样式</strong>
+<br>所有的 Java(*.java) 文件都必须遵守如下的样式规则
+<br>
+	<UL>
+		<li>版权信息
+		<br>版权信息必须在 java 文件的开头，比如：
+		<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+/**
+ * Copyright &reg; 2000 Shanghai XXX Co. Ltd.
+ * All right reserved.
+ */
+		</pre></td></tr></table>
+		其他不需要出现在 javadoc 的信息也可以包含在这里。<br><br>
+	</UL>
+	<UL>
+		<li>Package/Imports
+		<br>package 行要在 import 行之前，import 中标准的包名要在本地的包名之前，而且按照字母顺序排列。如果 import 行中包含了同一个包中的不同子目录，则应该用 * 来处理。
+		<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+package hotlava.net.stats;
+
+import java.io.*;
+import java.util.Observable;
+import hotlava.util.Application;
+		</pre></td></tr></table>
+		这里 java.io.*  使用来代替InputStream and OutputStream 的。<br><br>
+	</UL>
+	<UL>
+		<li>Class
+		<br>接下来的是类的注释，一般是用来解释类的。
+		<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+/**
+ * A class representing a set of packet and byte counters
+ * It is observable to allow it to be watched, but only
+ * reports changes when the current set is complete
+ */
+		</pre></td></tr></table>
+接下来是类定义，包含了在不同的行的 extends 和 implements 
+		<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+public class CounterSet
+		extends Observable
+		implements Cloneable
+		</pre></td></tr></table>
+	</UL>
+	<UL>
+		<li>Class Fields
+		<br>接下来是类的成员变量：
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+/**
+ * Packet counters
+ */
+protected int[] packets;
+</pre></td></tr></table>
+		public 的成员变量必须生成文档（JavaDoc）。proceted、private和 package 定义的成员变量如果名字含义明确的话，可以没有注释。<br><br>
+	</UL>
+	<UL>
+		<li>存取方法
+		<br>接下来是类变量的存取的方法。它只是简单的用来将类的变量赋值获取值的话，可以简单的写在一行上。
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+/**
+ * Get the counters
+ * @return an array containing the statistical data.  This array has been
+ * freshly allocated and can be modified by the caller.
+ */
+public int[] getPackets() { return copyArray(packets, offset); }
+public int[] getBytes() { return copyArray(bytes, offset); }
+
+public int[] getPackets() { return packets; }
+public void setPackets(int[] packets) { this.packets = packets; }
+</pre></td></tr></table>
+		其它的方法不要写在一行上<br><br>
+	</UL>
+	<UL>
+		<li>构造函数
+		<br>接下来是构造函数，它应该用递增的方式写（比如：参数多的写在后面）。
+		<br>访问类型 ("public", "private" 等.) 和 任何 "static", "final" 或 "synchronized" 应该在一行中，并且方法和参数另写一行，这样可以使方法和参数更易读。
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+public
+CounterSet(int size){
+  this.size = size;
+}
+</pre></td></tr></table>
+	</UL>
+	<UL>
+		<li>克隆方法
+		<br>如果这个类是可以被克隆的，那么下一步就是 clone 方法：
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+public
+Object clone() {
+  try {
+    CounterSet obj = (CounterSet)super.clone();
+    obj.packets = (int[])packets.clone();
+    obj.size = size;
+    return obj;
+  }catch(CloneNotSupportedException e) {
+    throw new InternalError("Unexpected CloneNotSUpportedException: " + e.getMessage());
+  }
+}
+</pre></td></tr></table>
+	</UL>
+	<UL>
+		<li>类方法
+		<br>下面开始写类的方法：
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+/**
+ * Set the packet counters
+ * (such as when restoring from a database)
+ */
+protected final
+void setArray(int[] r1, int[] r2, int[] r3, int[] r4)
+  throws IllegalArgumentException
+{
+  //
+  // Ensure the arrays are of equal size
+  //
+  if (r1.length != r2.length || r1.length != r3.length || r1.length != r4.length)
+	throw new IllegalArgumentException("Arrays must be of the same size");
+  System.arraycopy(r1, 0, r3, 0, r1.length);
+  System.arraycopy(r2, 0, r4, 0, r1.length);
+}
+
+</pre></td></tr></table>
+	</UL>
+	<UL>
+		<li>toString 方法
+		<br>无论如何，每一个类都应该定义 toString 方法：
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+public
+String toString() {
+  String retval = "CounterSet: ";
+    for (int i = 0; i < data.length(); i++) {
+      retval += data.bytes.toString();
+      retval += data.packets.toString();
+    }
+    return retval;
+  }
+}
+</pre></td></tr></table>
+
+	</UL>
+	<UL>
+		<li>main 方法
+		<br>如果main(String[]) 方法已经定义了, 那么它应该写在类的底部.
+	</UL>
+</p>
+
+
+
+
+
+<a name="3">
+<p><strong class="subhead">代码编写格式</strong>
+<br>
+	<UL>
+		<li>代码样式
+		<br>代码应该用 unix 的格式，而不是 windows 的（比如：回车变成回车+换行）
+	</UL>
+	<UL>
+		<li>文档化
+		<br>必须用 javadoc 来为类生成文档。不仅因为它是标准，这也是被各种 java 编译器都认可的方法。使用 @author 标记是不被推荐的，因为代码不应该是被个人拥有的。
+	</UL>
+	<UL>
+		<li>缩进 
+		<br>缩进应该是每行2个空格. 不要在源文件中保存Tab字符. 在使用不同的源代码管理工具时Tab字符将因为用户设置的不同而扩展为不同的宽度.  
+		<br>如果你使用 UltrEdit 作为你的 Java 源代码编辑器的话，你可以通过如下操作来禁止保存Tab字符, 方法是通过 UltrEdit中先设定 Tab 使用的长度室2个空格，然后用 Format|Tabs to Spaces 菜单将 Tab 转换为空格。 
+	</UL>
+	<UL>
+		<li>页宽 
+		<br>页宽应该设置为80字符. 源代码一般不会超过这个宽度, 并导致无法完整显示,  但这一设置也可以灵活调整. 在任何情况下, 超长的语句应该在一个逗号或者一个操作符后折行. 一条语句折行后, 应该比原来的语句再缩进2个字符. 
+	</UL>
+	<UL>
+		<li>{} 对 
+		<br>{} 中的语句应该单独作为一行. 例如, 下面的第1行是错误的, 第2行是正确的: 
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+if (i>0) { i ++ }; // 错误, { 和 } 在同一行 
+
+if (i>0) { 
+i ++ 
+};       // 正确, { 单独作为一行 
+
+
+} 语句永远单独作为一行. 
+</pre></td></tr></table>
+		如果 } 语句应该缩进到与其相对应的 { 那一行相对齐的位置。<br><br>
+	</UL>
+	<UL>
+		<li>括号 
+		<br>左括号和后一个字符之间不应该出现空格, 同样, 右括号和前一个字符之间也不应该出现空格. 下面的例子说明括号和空格的错误及正确使用: 
+		<br><br>CallProc( AParameter ); // 错误 
+		<br>CallProc(AParameter);   // 正确 
+		<br><br>不要在语句中使用无意义的括号. 括号只应该为达到某种目的而出现在源代码中。下面的例子说明错误和正确的用法: 
+		<br><br>if ((I) = 42) {           // 错误 - 括号毫无意义 
+		<br>if (I == 42) or (J == 42) then // 正确 - 的确需要括号  
+		<br>
+	</UL>
+</p>
+
+
+<a name="4">
+<p><strong class="subhead">程序编写规范</strong>
+<br>
+	<UL>
+		<li>exit()
+		<br>exit 除了在 main 中可以被调用外，其他的地方不应该调用。因为这样做不给任何代码代码机会来截获退出。一个类似后台服务地程序不应该因为某一个库模块决定了要退出就退出。
+	</UL>
+	<UL>
+		<li>异常
+		<br>申明的错误应该抛出一个RuntimeException或者派生的异常。
+		<br>顶层的main()函数应该截获所有的异常，并且打印（或者记录在日志中）在屏幕上。
+	</UL>
+	<UL>
+		<li>垃圾收集
+		<br>JAVA使用成熟的后台垃圾收集技术来代替引用计数。但是这样会导致一个问题：你必须在使用完对象的实例以后进行清场工作。比如一个prel的程序员可能这么写：
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+	...
+	{
+		FileOutputStream fos = new FileOutputStream(projectFile);
+		project.save(fos, "IDE Project File"); 
+	}
+	...
+</pre></td></tr></table>
+		除非输出流一出作用域就关闭，非引用计数的程序语言，比如JAVA，是不能自动完成变量的清场工作的。必须象下面一样写：
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+	FileOutputStream fos = new FileOutputStream(projectFile);
+	project.save(fos, "IDE Project File"); 
+	fos.close();
+</pre></td></tr></table>
+	</UL>
+	<UL>
+		<li>Clone
+		<BR>下面是一种有用的方法：
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+  implements Cloneable
+
+  public
+    Object clone()
+    {
+      try {
+        ThisClass obj = (ThisClass)super.clone();
+        obj.field1 = (int[])field1.clone();
+        obj.field2 = field2;
+        return obj;
+      } catch(CloneNotSupportedException e) {
+        throw new InternalError("Unexpected CloneNotSUpportedException: " + e.getMessage());
+      }
+  }
+</pre></td></tr></table>
+	</UL>
+	<UL>
+		<li>final 类
+		<br>绝对不要因为性能的原因将类定义为 final 的（除非程序的框架要求）
+		<br>如果一个类还没有准备好被继承，最好在类文档中注明，而不要将她定义为 final 的。这是因为没有人可以保证会不会由于什么原因需要继承她。
+	</UL>
+	<UL>
+		<li>访问类的成员变量
+		<br>大部分的类成员变量应该定义为 protected 的来防止继承类使用他们。
+		<br>注意，要用"int[] packets"，而不是"int packets[]"，后一种永远也不要用。
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+	public void setPackets(int[] packets) { this.packets = packets; }
+
+	  CounterSet(int size)
+		{
+		  this.size = size;
+		}
+</pre></td></tr></table>
+	</UL>
+</p>
+
+<a name="5">
+<p><strong class="subhead">编程技巧</strong>
+<br>
+	<UL>
+		<li>byte 数组转换到 characters
+		<br>为了将 byte 数组转换到 characters，你可以这么做：
+		<br><br> "Hello world!".getBytes();
+		<br><br>
+	</UL>
+	<UL>
+		<li>Utility 类
+		<br>Utility 类（仅仅提供方法的类）应该被申明为抽象的来防止被继承或被初始化。
+		<br><br>
+	</UL>
+	<UL>
+		<li>初始化
+		<br>下面的代码是一种很好的初始化数组的方法：
+		<br><br>objectArguments = new Object[] { arguments };
+		<br><br>
+	</UL>
+	<UL>
+		<li>枚举类型
+		<br>JAVA 对枚举的支持不好，但是下面的代码是一种很有用的模板：
+<table border=0 cellpadding=0 class=code-sample width="98%"><tr><td><br><pre>
+class Colour {
+  public static final Colour BLACK = new Colour(0, 0, 0);
+  public static final Colour RED = new Colour(0xFF, 0, 0);
+  public static final Colour GREEN = new Colour(0, 0xFF, 0);
+  public static final Colour BLUE = new Colour(0, 0, 0xFF);
+  public static final Colour WHITE = new Colour(0xFF, 0xFF, 0xFF);
+}
+</pre></td></tr></table>
+		这种技术实现了RED, GREEN, BLUE 等可以象其他语言的枚举类型一样使用的常量。 他们可以用 '==' 操作符来比较。
+		<br>但是这样使用有一个缺陷：如果一个用户用这样的方法来创建颜色 BLACK
+		<br><br>new Colour(0,0,0)
+		<br><br>那么这就是另外一个对象，'=='操作符就会产生错误。她的 equal()	方法仍然有效。由于这个原因，这个技术的缺陷最好注明在文档中，或者只在自己的包中使用。
+	</UL>
+</p>
+<a name="6">
+<p><strong class="subhead">Swing</strong>
+<br>
+	<UL><li>避免使用 AWT 组件
+		<UL>
+			<li>混合使用 AWT 和 Swing 组件
+			<br>如果要将 AWT 组件和 Swing 组件混合起来使用的话，请小心使用。实际上，尽量不要将他们混合起来使用。
+			<br><br>
+		</UL>
+		<UL>
+			<li>滚动的 AWT 组件
+			<br>AWT 组件绝对不要用 JscrollPane 类来实现滚动。滚动 AWT 组件的时候一定要用 AWT ScrollPane 组件来实现。
+			<br><br>
+		</UL>
+		<UL>
+			<li>避免在 InternalFrame 组件中使用 AWT 组件
+			<br>尽量不要这么做，要不然会出现不可预料的后果。
+			<br><br>
+		</UL>
+		<UL>
+			<li>Z-Order 问题
+			<br>AWT 组件总是显示在 Swing 组件之上。当使用包含 AWT 组件的 POP-UP 菜单的时候要小心，尽量不要这样使用。
+			<br><br>
+		</UL>
+	</UL>
+</p>
+	
+<a name="7">
+<p><strong class="subhead">调试</strong>
+<br>
+	<UL>
+		<li>调试在软件开发中是一个很重要的部分，存在软件生命周期的各个部分中。调试能够用配置开、关是最基本的。
+		<br><br>很常用的一种调试方法就是用一个 PrintStream 类成员，在没有定义调试流的时候就为 null，类要定义一个 debug 方法来设置调试用的流。
+		<br><br>
+	</UL>
+</p>
+<a name="8">
+<p><strong class="subhead">性能</strong>
+<br>
+	<UL>
+		<li>在写代码的时候，从头至尾都应该考虑性能问题。这不是说时间都应该浪费在优化代码上，而是我们时刻应该提醒自己要注意代码的效率。比如：如果没有时间来实现一个高效的算法，那么我们应该在文档中记录下来，以便在以后有空的时候再来实现她。
+		<br><br>不是所有的人都同意在写代码的时候应该优化性能这个观点的，他们认为性能优化的问题应该在项目的后期再去考虑，也就是在程序的轮廓已经实现了以后。
+	</UL>
+	<UL>
+		<li>不必要的对象构造
+		<UL>
+			<li>不要在循环中构造和释放对象
+			<br><BR>
+		</UL>
+		<UL>
+			<li>使用 StringBuffer 对象
+			<br>在处理 String 的时候要尽量使用 StringBuffer 类，StringBuffer 类是构成 String 类的基础。String 类将 StringBuffer 类封装了起来，（以花费更多时间为代价）为开发人员提供了一个安全的接口。当我们在构造字符串的时候，我们应该用 StringBuffer 来实现大部分的工作，当工作完成后将 StringBuffer 对象再转换为需要的 String 对象。比如：如果有一个字符串必须不断地在其后添加许多字符来完成构造，那么我们应该使用 StringBuffer 对象和她的 append() 方法。如果我们用 String 对象代替 StringBuffer 对象的话，会花费许多不必要的创建和释放对象的 CPU 时间。
+			<br>
+		</UL>
+	</UL>
+	<UL>
+		<li>避免太多的使用 synchronized 关键字
+		<br>避免不必要的使用关键字 synchronized，应该在必要的时候再使用她，这是一个避免死锁的好方法。
+	</UL>
+
+</p>
+<a name="9">
+<p><strong class="subhead">可移植性</strong>
+<BR>
+	Borland Jbulider 不喜欢 synchronized 这个关键字，如果你的断点设在这些关键字的作用域内的话，调试的时候你会发现的断点会到处乱跳，让你不知所措。除非必须，尽量不要使用。
+	<br>
+	<UL>
+		<li>换行
+		<br>如果需要换行的话，尽量用 println 来代替在字符串中使用"\n"。
+		<br>你不要这样：
+		<br><br>System.out.print("Hello,world!\n");
+		<br><br>要这样：
+		<br><br>System.out.println("Hello,world!");
+		<br><br>或者你构造一个带换行符的字符串，至少要象这样：
+		<br><br>String newline = System.getProperty("line.separator");
+		<br>System.out.println("Hello world" + newline);
+		<br><br>
+	</UL>
+	<UL>
+		<li>PrintStream
+		<br>PrintStream 已经被不赞成（deprecated）使用，用 PrintWrite 来代替她。
+	</UL>
+</p>
+
+
+<a name="resources">
+<p><strong class="subhead">参考资料</strong></p>
+
+	<ul>
+	  <li>查找有关 Thread 类和 <A href="http://java.sun.com/products/jdk/1.2/docs/api/index.html">Java 2 平台，标准版，API 规范</a>的其他方面的信息。</li>
+	</ul>
+</td>    
+<!--结束正文-->
+</tr>
+</table>
+<!--结束中部-->
+
+<!--开始底部--> 
+<hr width='98%' noshade="noshade" size="1">                   
+<script language="javascript" src="../public/bottom.js"></script>
+<!--结束底部-->                   
+</body>
+</html>
