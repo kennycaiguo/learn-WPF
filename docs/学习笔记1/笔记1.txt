@@ -1,0 +1,22 @@
+一、xaml中常见的顶级元素（根元素）：
+1.Windows
+2.Page
+3.Application                                       
+
+二 ，元素属性的两种写法：
+      1）<Grid Cursor="IBeam" Name="MainGrid"> </Grid>
+      2）<Grid>
+               <Grid.Cursor>IBeam<Grid.Cursor>
+               <Grid.Name>MainGrid</Grid.Name>
+           </Grid>
+三、附加属性
+       就是在一个类中使用了另外一个类的属性。
+如： <TextBox HorizontalAlignment="Left" Height="23" Margin="141,55,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+       中，Grid.Row="1"就是附件属性
+
+四、转义字符如：&lt 表示“<",&gt 表示">"等待
+
+五、3种方法编写wpf应用程序：
+1.只使用代码创建wpf程序
+2.使用代码和未经编译的xaml创建程序
+3.使用代码和编译过的xaml创建程序
