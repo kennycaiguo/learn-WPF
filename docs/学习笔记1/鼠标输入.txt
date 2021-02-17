@@ -1,0 +1,26 @@
+1.鼠标点击
+鼠标事件有直接事件。
+MouseEnter
+MouseLeave
+当然也有隧道事件
+PreviewMouseMove
+MouseMove                ，可以利用MouseEventArgs对象来获取鼠标的位置
+	     
+PreviewMouseLeftButtonDown
+MouseLeftButtonDown
+PreviewMouseRightButtonDown
+MouseRightButtonDown
+PreviewMouseLeftButtonUp
+MouseLeftButtonUp
+PreviewMouseRightButtonUp
+MouseRightButtonUp
+ 
+2.捕获鼠标，就是让每一个元素响应鼠标事件，其它元素都不能响应，除非该元素失去焦点
+原理：利用Mouse类的capture方法，参数是需要捕获鼠标的元素和捕获的信息类型（可选）
+
+3.鼠标拖放：文本框默认就支持拖放，不用编写任何代码，label控件则需要编写代码。
+实现拖放需要一个拖放源和一个目标。需要用到DragDrop相关类。当处理MouseDown事
+件时，就可以设置拖放的源与目标。就可以调用DoDragDrop方法初始化拖放源。
+注意：1.）拖放目标必须将AllowDrop属性设置为True。否则无法接受拖放。
+           2）必须为拖放目标的Drop事件添加接受拖放的代码。
+
