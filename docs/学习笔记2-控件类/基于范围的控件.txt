@@ -1,0 +1,16 @@
+Slider
+有一个Orientation属性，可以就Slider控件设置为水平或者垂直显示。
+可以通过设置Maximum属性修改最大值。可以通过设置Miniimum属性修改最小值。
+Value属性表示当前值。通过TickPlacement设置刻度。TickFrequency设置每一个刻度
+表示多少，有可以利用Ticks进行不均匀设置。
+如：
+ <Slider Margin="3" Name="slider1" Maximum="100" Ticks="10,40,80" TickFrequency="2" TickPlacement="BottomRight" ></Slider>
+另外，设置IsSelectionRangeEnabled="True"，可以在Slider控件设置一段阴影来起到警告的作用。
+然后就可以设置警告区域的起点和终点。SelectionStart表示起点，SelectionEnd表示终点。
+SmallChange属性可以设置小变化量（如按键盘的左右方向键）。LargeChange属性可以修改大变化量（PageUp/Down键）。
+
+ProgressBar：
+用于指示一个长时间运行的任务的进度。进度条控件不能和用户进行交互。
+常见属性：Maximum，Minimum，Value，IsIndeterminate（如果为True，则会显示一个脉冲移动的动画
+效果）
+

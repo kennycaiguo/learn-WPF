@@ -1,0 +1,91 @@
+常见带标题的内容控件有：
+GroupBox
+wpf中，GroupBox属于内容控件，只能包含一个元素，可以放置一个Panel控件
+或者Grid容器来解决这个问题
+TabItem
+TabItem是TabCtrl中的一个页面。 属于内容控件，只能包含一个元素，可以放置一个Panel控件
+或者Grid容器来解决这个问题。
+TabItem简单布局：
+<Window x:Class="WpfControlClass.TabCtrl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TabCtrl" Height="350" Width="400">
+    <TabControl>
+        <TabItem Name="item1" Header="TabItem1">
+            <Grid>
+                <StackPanel>
+                    <CheckBox Name="chk1">Java</CheckBox>
+                    <CheckBox Name="chk2">C++</CheckBox>
+                    <CheckBox Name="chk3">.Net</CheckBox>
+                </StackPanel>
+              
+            </Grid>
+        </TabItem>
+        <TabItem Name="item2" Header="TabItem2"></TabItem>
+    </TabControl>
+</Window>
+注意：TabItem的Header属性一个容器控件，可以放置任何控件。
+TabItem的较为复杂布局（TabItem2）：
+<Window x:Class="WpfControlClass.TabCtrl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TabCtrl" Height="350" Width="400">
+    <TabControl>
+        <TabItem Name="item1" Header="TabItem1">
+            <Grid>
+                <StackPanel>
+                    <CheckBox Name="chk1">Java</CheckBox>
+                    <CheckBox Name="chk2">C++</CheckBox>
+                    <CheckBox Name="chk3">.Net</CheckBox>
+                </StackPanel>
+              
+            </Grid>
+        </TabItem>
+        <TabItem Name="item2" >
+            <TabItem.Header>
+                <StackPanel>
+                    <TextBlock>TabItem2</TextBlock>
+                    <Image  Stretch="None" Height="15" Source="icon-houses-active.png"></Image>
+                </StackPanel>
+            </TabItem.Header>
+        </TabItem>
+    </TabControl>
+</Window>
+
+
+
+Expander
+这是一个比较奇特的带标题的内容控件。具有点击小箭头展开功能。
+Expander控件可以和ScrollViewer控件和TextBlock控件一起使用实现滚动显示文本
+如：
+<Window x:Class="WpfControlClass.Expander"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Expander" Height="300" Width="300">
+    <StackPanel>
+        <Expander Name="exp1" Header="expander1">
+            <Grid>
+                <Button>Hello</Button>
+            </Grid>
+        </Expander>
+        <Expander Name="exp2" Header="expander2">
+            <Grid>
+                
+                <TextBlock TextWrapping="Wrap">
+                 。。。
+                </TextBlock>
+            </Grid>
+        </Expander>
+        <Expander Name="exp3" Header="expander3">
+            <ScrollViewer  VerticalScrollBarVisibility="Visible" Height="100">
+                <TextBlock Name="tbl1" TextWrapping="Wrap">
+                 。。。
+                </TextBlock>
+            </ScrollViewer>
+        </Expander>
+    </StackPanel>
+</Window>
+
+注意：可以改变Expander控件的扩展方向。
+通过修改ExpandDirection属性，有上下左右四种选择，如：
+ <Expander Name="exp2" Header="expander2" ExpandDirection="Right" />

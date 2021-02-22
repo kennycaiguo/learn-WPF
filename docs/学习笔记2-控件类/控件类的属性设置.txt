@@ -1,0 +1,66 @@
+控件，就是可以跟用户交互的元素，它们功能接受焦点，能够接受键盘或鼠标的输入。在wpf中有许多类，但是只有一部分是控件类。
+所有的控件都继承Control类，它提供了诸如修改对齐方式，改变大小，改变背景色和前景色等等的能力。
+
+背景画刷和前景画刷：
+背景BackGround是指控件的表面，前景Foreground是指控件的文本。wpf是通过画刷来设置背景色和前景色的。
+可以在xaml文件里面对控件是属性进行设置也可以通过代码动态设置。
+通过代码设置控件的背景色和前景色：Brushes是一个枚举，它包含各种背景色
+写法一、
+          控件.Background = Brushes.BlueViolet;
+          控件.Foreground = Brushes.Crimson;
+注意：控件的背景色和前景色需要的是Brush接口类型，需要使用Brushes.颜色，如果传递Colors.颜色，就会出错
+因为类型不兼容。
+写法二、
+            btn.Background = new SolidColorBrush(Colors.Gainsboro);
+            btn.Foreground = new SolidColorBrush(Colors.Goldenrod);
+写法三、
+            btn.Background = SystemColors.ActiveCaptionBrush;
+            btn.Foreground = SystemColors.ControlBrush;
+
+写法四、
+            btn.Background = new SolidColorBrush(Color.FromRgb(111,125,40));
+            btn.Foreground = new SolidColorBrush(Color.FromRgb(200, 0, 111));
+
+控件的字体：
+             //设置字体
+            btn.FontStyle = FontStyles.Italic;
+            btn.FontFamily = new FontFamily("Microsoft YaHei");
+            btn.FontSize = 24;
+            //btn.FontWeight = FontWeights.DemiBold;
+            //btn.FontWeight = FontWeights.ExtraLight;
+            //btn.FontWeight = FontWeights.Medium;
+            btn.FontWeight = FontWeights.SemiBold;
+
+利用代码获取系统字体并且添加到列表框中，假设列表框的Name=“lstFont”，并且保存字体到一个文件中
+  StreamWriter sr = new StreamWriter("fonts.txt");
+            //列出所有系统字体
+            foreach(FontFamily f in Fonts.SystemFontFamilies)
+            {
+                lstFont.Items.Add(f);
+                sr.WriteLine(f);
+            }
+设置TextDecorations属性：注意：TextBlock类有这个属性，Button类没有，
+ListBox类没有，Label类没有，XXXPanel类也没有。
+xaml： <TextBlock Name="tb" Margin="5" FontFamily="Times New Romans" FontSize="18" TextDecorations="UnderLine">hello</TextBlock>
+代码：假设TextBlock Name="tb" 
+ tb.TextDecorations = TextDecorations.Strikethrough;
+字体继承：父控件设置的字体会被子控件继承。但是如果也为子控件设置了字体，
+则子控件的设置会覆盖父控件的字体设置。
+
+wpf文字渲染的问题：当控件的字体很小的时候，会有颜色干扰和显示模糊
+解决办法：添加这个附加属性 TextOptions.TextFormattingMode="Display"
+注意：当控件的字体比较大时，这个属性没有明显效果。
+
+设置控件的鼠标光标形状：格式：控件.Cursor=Cursors.光标形状如：
+ //btn.Cursor = Cursors.AppStarting;
+            //btn.Cursor = Cursors.ArrowCD;//
+           // btn.Cursor = Cursors.Pen;
+           // btn.Cursor = Cursors.Hand;
+           // btn.Cursor = Cursors.Help;
+           // btn.Cursor = Cursors.Wait;
+           // btn.Cursor = Cursors.SizeWE;
+           // btn.Cursor = Cursors.SizeAll;
+           // btn.Cursor = Cursors.ScrollWE;
+            //btn.Cursor = Cursors.ScrollSE;
+           // btn.Cursor = Cursors.ScrollNS;
+            //btn.Cursor = Cursors.ScrollE;

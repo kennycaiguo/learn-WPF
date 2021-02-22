@@ -1,0 +1,14 @@
+Calendar控件：
+有一个重要的属性，DisplayMode，可以选择Decade，Year，Month，默认是Month方式
+DisplayDateStart="2021/2/1" 和 DisplayDateEnd="2021/2/28"属性可以设置日期
+从那一天开始显示，可以设置它只显示当月的日期。如上面所示。还可以通过FirstDayOfWeek="Monday"
+将星期一作为一个星期的第一天，默认星期天是第一天。还有一个SelectedDate属性，表示选中的日期。
+
+事件：calendar1_SelectedDatesChanged事件,Calendar控件支持多选，多选必须将SelectionMode设置
+为MultipleRange，一般情况下，今天的日期是高亮的如果不想这样子，可以将IsTodayHighlighted设置为
+False。
+
+DatePicker控件：
+默认DatePicker控件不显示下拉日历，如果想要它默认显示，需要将IsDropDownOpen设置为True。
+DatePicker控件允许用户在文本框在输入日期，当用户输入的日期非法，就会触发非法日期事件。
+DateValidationError。

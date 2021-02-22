@@ -1,0 +1,88 @@
+ListBox
+设置变量项：
+方法1.在xaml在设置：
+<Window x:Class="WpfControlClass.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="300" Width="500">
+    <Grid>
+        <ListBox Name="lsb1">
+            <ListBoxItem>Red</ListBoxItem>
+            <ListBoxItem>Orange</ListBoxItem>
+             <ListBoxItem>
+                <Image Source="gggirl.jpg" ></Image>
+            </ListBoxItem>
+            <ListBoxItem>Yellow</ListBoxItem>
+            <ListBoxItem>Green</ListBoxItem>
+            <ListBoxItem>Cyan</ListBoxItem>
+            <ListBoxItem>Blue</ListBoxItem>
+            <ListBoxItem>Purple</ListBoxItem>
+
+        </ListBox>
+    </Grid>
+</Window>
+注意：ListBoxItem类继承自内容控件，可以包含嵌套的内容
+
+方法2.代码设置：
+在窗口的Loaded事件处理代码中添加如下代码：
+  private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lsb1.Items.Clear();
+            string[] names = { "Jack", "Mary", "Rosey", "Don", "Kennisia", "Barnet" };
+            foreach (string name in names)
+            {
+                lsb1.Items.Add(name);
+            }
+            BitmapImage myBitmapImage = new BitmapImage();
+
+
+            // BitmapImage.UriSource must be in a BeginInit/EndInit block
+            myBitmapImage.BeginInit();
+            myBitmapImage.UriSource = new Uri(@"D:\vs2013projects\WPF\WpfControlClass\WpfControlClass\gggirl.jpg", UriKind.Absolute);
+            myBitmapImage.EndInit();
+
+            Image im = new Image();
+           im.Source=myBitmapImage;
+           im.Stretch = Stretch.None;
+            
+            lsb1.Items.Add(im);
+        }
+注意：加载Image比较复杂，先要创建一个BitmapImage,然后将Image控件的Source
+属性设置为对象，再将Image添加到ListBox中。
+
+还可以利用StackPanel创建一个包含文本和图片的项，然后添加到ListBox：
+代码如下：
+  private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lsb1.Items.Clear();
+            string[] names = { "Jack", "Mary", "Rosey", "Don", "Kennisia", "Barnet" };
+            foreach (string name in names)
+            {
+                lsb1.Items.Add(name);
+            }
+            BitmapImage myBitmapImage = new BitmapImage();
+
+
+            // BitmapImage.UriSource must be in a BeginInit/EndInit block
+            myBitmapImage.BeginInit();
+            myBitmapImage.UriSource = new Uri(@"D:\vs2013projects\WPF\WpfControlClass\WpfControlClass\gggirl.jpg", UriKind.Absolute);
+            myBitmapImage.EndInit();
+
+            Image im = new Image();
+           im.Source=myBitmapImage;
+           im.Stretch = Stretch.None;
+            
+            StackPanel sp = new StackPanel();
+            TextBlock tb = new TextBlock();
+            tb.Text = "Hello,girl";
+            sp.Children.Add(tb);
+            sp.Children.Add(im);
+            lsb1.Items.Add(sp);
+        }
+注意：
+ListBox非常智能，你可以不用ListBoxItem类，一样可以创建列表项，
+可以在ListBox里面直接使用StakPanel来创建列表项
+
+ComboBox：
+包含一个ComboBoxItem对象，和ListboxItem类似。
+ComboBox和ListBox的区别是ComboBox的列表项只能单选而ListBox的列表项可以多选。
